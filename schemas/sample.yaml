@@ -1,0 +1,57 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "sample"
+title: Sample
+type: object
+namespace: https://imaging-hub.data-commons.org
+category: biospecimen
+program: '*'
+project: '*'
+description: >
+  Any biological or material sample used for testing, diagnostic, propagation, treatment
+  or research purposes, including a sample obtained from a living organism or taken from the
+  biological object after halting of all its life functions.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+    - name: subjects
+      backref: samples
+      label: derived_from
+      target_type: subject
+      multiplicity: many_to_one
+      required: false
+    - name: datasets
+      backref: samples
+      label: derived_from
+      target_type: dataset
+      multiplicity: many_to_one
+      required: false
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"
+
+  datasets:
+    $ref: "_definitions.yaml#/to_one"

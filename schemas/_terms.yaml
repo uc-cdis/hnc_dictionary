@@ -1,0 +1,149 @@
+id: _terms
+
+data_category:
+  description: >
+    Broad categorization of the contents of the data file.
+
+data_format:
+  description: >
+    Format of the data files.
+
+data_type:
+  description: >
+    Specific content type of the data file.
+
+datetime:
+  description: >
+    A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+
+ethnicity:
+  description: >
+    An individual's self-described social and cultural grouping, specifically whether an individual
+    describes themselves as Hispanic or Latino. The provided values are based on the categories
+    defined by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
+  termDef:
+    term: Ethnic Group Category Text
+    source: caDSR
+    cde_id: 2192217
+    cde_version: 2.0
+    term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2192217&version=2.0"
+
+file_name:
+  description: >
+    The name (or part of a name) of a file (of any type).
+
+file_size:
+  description: >
+    The size of the data file (object) in bytes.
+
+gender:
+  description: >
+    Text designations that identify gender. Gender is described as the assemblage of properties that
+    distinguish people on the basis of their societal roles. [Explanatory Comment 1: Identification
+    of gender is based upon self-report and may come from a form, questionnaire, interview, etc.]
+  termDef:
+    term: Person Gender Text Type
+    source: caDSR
+    cde_id: 2200604
+    cde_version: 3.0
+    term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2200604&version=3.0"
+
+md5sum:
+  description: >
+    The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital
+    fingerprint.
+
+object_id:
+    type: string
+    description: "The GUID of the object in the index service."
+
+primary_diagnosis:
+  description: >
+    The primary disease, disorder, or condition the patient was diagnosed with.
+  termDef:
+    term:
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
+project_id:
+  description: >
+    Unique ID for any specific defined piece of work that is undertaken or attempted to
+    meet a single requirement.
+
+race:
+  description: >
+    An arbitrary classification of a taxonomic group that is a division of a species. It usually
+    arises as a consequence of geographical isolation within a species and is characterized by
+    shared heredity, physical attributes and behavior, and in the case of humans, by common history,
+    nationality, or geographic distribution. The provided values are based on the categories defined
+    by the U.S. Office of Management and Business and used by the U.S. Census Bureau.
+  termDef:
+    term: Race Category Text
+    source: caDSR
+    cde_id: 2192199
+    cde_version: 1.0
+    term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2192199&version=1.0"
+
+state:
+  description: >
+    The current state of the object.
+
+tumor_grade:
+  description: >
+    Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation
+    and aggressiveness.
+  termDef:
+    term: Neoplasm Histologic Grade
+    source: caDSR
+    cde_id: 2785839
+    cde_version: 2.0
+    term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2785839&version=2.0"
+
+tumor_code:
+  description: >
+    A specification of a cancer through cellular origin and localization.
+
+tumor_code_id:
+  description: >
+    BCR-defined id code for the tumor sample.
+
+tumor_descriptor:
+  description: >
+    Text that describes the kind of disease present in the tumor specimen as related to a specific
+    timepoint.
+  termDef:
+    term: Tumor Tissue Disease Description Type
+    source: caDSR
+    cde_id: 3288124
+    cde_version: 1.0
+    term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=3288124&version=1.0"
+
+tumor_stage:
+  description: >
+    The extent of a cancer in the body. Staging is usually based on the size of the tumor, whether
+    lymph nodes contain cancer, and whether the cancer has spread from the original site to other
+    parts of the body. The accepted values for tumor_stage depend on the tumor site, type, and
+    accepted staging system. These items should accompany the tumor_stage value as associated
+    metadata.
+  termDef:
+    term: Tumor Stage
+    source: NCIt
+    cde_id: C16899
+    cde_version: null
+    term_url: "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI%20Thesaurus&code=C16899"
+
+UUID:
+  description: >
+    A 128-bit identifier. Depending on the mechanism used to generate it, it is either guaranteed to
+    be different from all other UUIDs/GUIDs generated until 3400 AD or extremely likely to be
+    different. Its relatively small size lends itself well to sorting, ordering, and hashing of all
+    sorts, storing in databases, simple allocation, and ease of programming in general.
+  termDef:
+    term: Universally Unique Identifier
+    source: NCIt
+    cde_id: C54100
+    cde_version: null
+    term_url: "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=16.02d&ns=NCI_Thesaurus&code=C54100"
+
