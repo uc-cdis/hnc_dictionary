@@ -1,0 +1,57 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "diagnosis"
+title: Diagnosis
+type: object
+namespace: https://imaging-hub.data-commons.org
+category: clinical
+program: '*'
+project: '*'
+description: >
+  Data from the investigation, analysis and recognition of the presence and nature of disease,
+  condition, or injury from expressed signs and symptoms; also, the scientific determination of any
+  kind; the concise results of such an investigation.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subject
+    backref: diagnosis
+    label: describes
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subject
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  tumor_grade:
+    term:
+      $ref: "_terms.yaml#/tumor_grade"
+    enum:
+      - "GX Grade cannot be assessed (undetermined grade)"
+      - "G1 Well differentiated (low grade)"
+      - "G2 Moderately differentiated (intermediate grade)"
+      - "G3 Poorly differentiated (high grade)"
+      - "G4 Undifferentiated (high grade)"
+      - "Unknown"
+
+  subject:
+    $ref: "_definitions.yaml#/to_one"

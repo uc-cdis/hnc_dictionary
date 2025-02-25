@@ -1,0 +1,148 @@
+schema: "http://json-schema.org/draft-04/schema#"
+
+id: "followup"
+title: Follow-Up
+type: object
+namespace: https://imaging-hub.data-commons.org
+category: clinical
+program: '*'
+project: '*'
+description: >
+  A visit by a patient or study participant to a medical professional. A clinical encounter that
+  encompasses planned and unplanned trial interventions, procedures and assessments that may be
+  performed on a subject. A visit has a start and an end, each described with a rule. The process
+  by which information about the health status of an individual is obtained before and after a study
+  has officially closed; an activity that continues something that has already begun or that repeats
+  something that has already been done.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subjects
+    backref: followups
+    label: describes
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subjects
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  adverse_event:
+    description: "Text that represents the Common Terminology Criteria for Adverse Events low level term name for an adverse event."
+    type: string
+
+  bmi:
+    description: "The body mass divided by the square of the body height expressed in units of kg/m^2."
+    type: number
+
+  cause_of_response:
+    description: >
+      A specific regimen or line of therapy responsible for the patient's observed improvement
+      achived at a certain point in time during a patient's treatment protocol.
+    type: string
+
+  days_to_adverse_event:
+    description: "Number of days between the date used for index and the date the patient had an adverse event."
+    type: integer
+
+  days_to_followup:
+    description: "Number of days between the date used for index and the date the patient was seen or contacted at follow-up."
+    type: integer
+
+  days_to_progression:
+    description: "Number of days between the date used for index and the date the patient was diagnosed with progression of disease."
+    type: integer
+
+  days_to_recurrence:
+    description: "Number of days between the date used for index and the date the patient was diagnosed with a recurrent malignancy."
+    type: integer
+
+  disease_response:
+    description: "The observed improvement achieved at a certain point in time during a patient's treatment protocol."
+    type: string
+ 
+  ecog_performance_status:
+    description: "The ECOG functional performance status of the patient/participant."
+    enum:
+      - "0"
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+
+  height:
+    description: "The height of the patient in centimeters."
+    type: number
+
+  progression_or_recurrence:
+    description: "Indicator to identify whether a patient has had a recurrent or relapsed malignancy or a progression of disease."
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  time_from_alcohol:
+    description: >
+      Hours since the patient last consumed alcohol.
+    type: number
+
+  time_from_exercise:
+    description: >
+      Hours since the patient last exercised.
+    type: number
+
+  time_from_food:
+    description: >
+      Hours since the patient last consumed food.
+    type: number
+
+  time_from_physical_trauma:
+    description: >
+      Hours since the patient last experienced physical trauma.
+    type: number
+
+  time_from_biopsy:
+    description: >
+      Hours since the patient last underwent a biopsy; please record the biopsy information in the 'diagnostic_test' node and link that record to this followup record.
+    type: number
+
+  time_from_recreational_drugs:
+    description: >
+      Hours since the patient last used recreational drugs.
+    type: number
+
+  time_from_tobacco:
+    description: >
+      Hours since the patient last used tobacco.
+    type: number
+
+  time_from_treatment:
+    description: >
+      Hours since the patient received a treatment, including surgical procedures or medications; please record the treatment information in the 'treatment' node and link that record to this followup record.
+    type: number
+
+  weight:
+    description: "The weight of the patient measured in kilograms."
+    type: number
+
+  subjects:
+    $ref: "_definitions.yaml#/to_one"

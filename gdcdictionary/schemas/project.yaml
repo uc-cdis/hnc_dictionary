@@ -30,8 +30,8 @@ uniqueKeys:
   - [ code ]
 
 links:
-  - name: programs
-    backref: projects
+  - name: program
+    backref: project
     label: member_of
     target_type: program
     multiplicity: many_to_one
@@ -57,7 +57,7 @@ properties:
   type:
     type: string
 
-  programs:
+  program:
     $ref: "_definitions.yaml#/to_one"
     description: >
       The program to which the project belongs.

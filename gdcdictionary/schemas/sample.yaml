@@ -34,14 +34,14 @@ links:
   - exclusive: false
     required: true
     subgroup:
-    - name: subjects
-      backref: samples
+    - name: subject
+      backref: sample
       label: derived_from
       target_type: subject
       multiplicity: many_to_one
       required: false
-    - name: datasets
-      backref: samples
+    - name: dataset
+      backref: sample
       label: derived_from
       target_type: dataset
       multiplicity: many_to_one
@@ -50,8 +50,8 @@ links:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  subjects:
+  subject:
     $ref: "_definitions.yaml#/to_one"
 
-  datasets:
+  dataset:
     $ref: "_definitions.yaml#/to_one"

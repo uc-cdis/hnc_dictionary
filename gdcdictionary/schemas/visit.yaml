@@ -21,8 +21,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: subjects
-    backref: visits
+  - name: subject
+    backref: visit
     label: member_of
     target_type: subject
     multiplicity: many_to_one
@@ -31,7 +31,7 @@ links:
 required:
   - submitter_id
   - type
-  - subjects
+  - subject
 
 uniqueKeys:
   - [id]
@@ -41,6 +41,6 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  subjects:
+  subject:
     description: The submitter_id or id of the subject this visit belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_many"

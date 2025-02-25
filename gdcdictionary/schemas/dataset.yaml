@@ -21,8 +21,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: projects
-    backref: datasets
+  - name: project
+    backref: dataset
     label: performed_for
     target_type: project
     multiplicity: many_to_one
@@ -31,7 +31,7 @@ links:
 required:
   - submitter_id
   - type
-  - projects
+  - project
 
 uniqueKeys:
   - [id]
@@ -104,6 +104,6 @@ properties:
     description: A high level description of the setup used to achieve the research objectives.
     type: string
 
-  projects:
+  project:
     description: The code of the project that this dataset belongs to, i.e., a link to the parent node.
     $ref: "_definitions.yaml#/to_one_project"

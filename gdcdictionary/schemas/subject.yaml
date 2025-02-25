@@ -8,7 +8,7 @@ namespace: https://imaging-hub.data-commons.org
 category: administrative
 program: '*'
 project: '*'
-description: The collection of all data related to a specific patient, case, or subject in the context of a specific dataset or experiment.
+description: The collection of all data related to a specific patient, case, or subject in the context of a specific dataset or experiment, including demographics.
 additionalProperties: false
 submittable: true
 validators: null
@@ -21,8 +21,8 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: datasets
-    backref: subjects
+  - name: dataset
+    backref: subject
     label: member_of
     target_type: dataset
     multiplicity: many_to_many
@@ -31,7 +31,7 @@ links:
 required:
   - submitter_id
   - type
-  - datasets
+  - dataset
 
 uniqueKeys:
   - [id]
@@ -41,6 +41,6 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  datasets:
+  dataset:
     description: The submitter_id or id of the dataset this subject belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_many"
