@@ -41,6 +41,35 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
+  # demographics from ENT_CA_DM_CancerRegistry_fake.txt
+  MRN: 
+    description: Medical Record Number
+    type: string
+  Last_Name:
+    description: Last Name
+    type: string
+  First_Name:
+    description: First Name
+    type: string
+  Date_of_Birth:
+    description: Date of Birth
+    type: string
+  Sex_Desc:
+    description: Subject's sex
+    type: string
+  Race_1_Desc:
+    description: Subject's race
+    type: string
+  Spanish_Hispanic_Origin_Desc:
+    description: Subject's sex
+    type: string
+  Primary_Payer_at_DX_Desc:
+    description: Insurance paying at time of diagnosis
+    type: string
+  Class_of_Case_Desc:
+    description: Class of case description
+    type: string
+
   dataset:
     description: The submitter_id or id of the dataset this subject belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_many"

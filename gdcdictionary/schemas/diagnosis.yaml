@@ -42,16 +42,151 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  tumor_grade:
-    term:
-      $ref: "_terms.yaml#/tumor_grade"
-    enum:
-      - "GX Grade cannot be assessed (undetermined grade)"
-      - "G1 Well differentiated (low grade)"
-      - "G2 Moderately differentiated (intermediate grade)"
-      - "G3 Poorly differentiated (high grade)"
-      - "G4 Undifferentiated (high grade)"
-      - "Unknown"
+  # tumor_grade:
+  #   term:
+  #     $ref: "_terms.yaml#/tumor_grade"
+  #   enum:
+  #     - "GX Grade cannot be assessed (undetermined grade)"
+  #     - "G1 Well differentiated (low grade)"
+  #     - "G2 Moderately differentiated (intermediate grade)"
+  #     - "G3 Poorly differentiated (high grade)"
+  #     - "G4 Undifferentiated (high grade)"
+  #     - "Unknown"
+
+  # DX from ENT_CA_DM_CancerRegistry_fake.txt
+  Date_of_First_Contact:
+    description: date of first contact at UChicago (I believe)
+    type: string
+  Date_of_Initial_Diagnosis:
+    description: date where cancer first diagnosed
+    type: string
+  Place_of_Diagnosis:
+    description: place where cancer first diagnosed
+    type: string
+  Primary_Site:
+    description: ICD10 code for primary site 
+    type: string
+  Primary_Site_Desc:
+    description: ICD10 code descr for primary site
+    type: string
+  histological_diagnosis: 
+    description: Histo/Behavior ICD-O-3	histological diagnosis by ICD-O-3 code
+    type: string
+  Laterality:
+    description: left vs. right vs. NA
+    type: string
+  Sequence_Number:
+    description: if patient has had only one malignancy vs. many
+    type: string
+  CS_Site_Specific_Factor_1:	
+    description: CS_Site_Specific_Factor_1
+    type: string
+  CS_Site_Specific_Factor_2:
+    description: CS_Site_Specific_Factor_2
+    type: string
+  CS_Site_Specific_Factor_3:
+    description: CS_Site_Specific_Factor_3
+    type: string
+  CS_Site_Specific_Factor_4:
+    description: CS_Site_Specific_Factor_4
+    type: string
+  CS_Site_Specific_Factor_5:
+    description: CS_Site_Specific_Factor_5
+    type: string
+  CS_Site_Specific_Factor_6:
+    description: CS_Site_Specific_Factor_6
+    type: string
+  CS_Site_Specific_Factor_7:
+    description: CS_Site_Specific_Factor_7
+    type: string
+  CS_Site_Specific_Factor_8:
+    description: CS_Site_Specific_Factor_8
+    type: string
+  CS_Site_Specific_Factor_9:
+    description: CS_Site_Specific_Factor_9
+    type: string
+  CS_Site_Specific_Factor_10:
+    description: CS_Site_Specific_Factor_10
+    type: string
+  CS_Tumor_Size:
+    description: CS tumor size
+    type: string
+  Size_of_Tumor:	
+    description: size of tumor
+    type: string
+  Tumor_Size_Clinical:	
+    description: clinical tumor size
+  Tumor_Size_Pathological:
+    description: pathological tumor size
+    type: string
+  Tumor_Size_Summary:
+    description: tumor size summary
+    type: string
+  Regional_Nodes_Exam:	
+    description: number of lymph nodes examined during staging
+    type: integer
+  Regional_Nodes_Positive:	
+    type: integer
+    description: number of lymph nodes positive for cancer
+  Clinical_T:	
+    type: string
+    description: staging variables for T (primary tumor) as determined by clinical/radiographic examination
+  Clinical_N:	
+    type: string
+    description: staging variables for N (nodes) as determined by clinical/radiographic examination
+  Clinical_M:	
+    type: string
+    description: staging variables for M (metastases) as determined by clinical/radiographic examination
+  Clinical_Stage_Group:	
+    type: string
+    description: staging variables for overall stage (1, 2, 3, 4) as determined by clinical/radiographic examination
+  Pathologic_T:	
+    type: string
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+  Pathologic_N:	
+    type: string
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+  Pathologic_M:	
+    type: string
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+  Pathologic_Stage_Descriptor:	
+    type: string
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+  Pathologic_Stage_Group:	
+    type: string
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+  # SEER_Summary_Stage_2000 from ENT_CA_DM_CancerRegistry_fake.txt
+  Site_of_Distant_Metastasis_1_Desc:	
+    type: string
+    description: variables capturing sites of distant mets
+  Site_of_Distant_Metastasis_2_Desc:	
+    type: string
+    description: variables capturing sites of distant mets
+  Site_of_Distant_Metastasis_3_Desc:	
+    type: string
+    description: variables capturing sites of distant mets
+  CS_Mets_at_Dx_Bone_Desc:	
+    type: string
+    description: variables capturing if there were metastases at specific locations at diagnosis (bone)
+  CS_Mets_at_Dx_Brain_Desc:	
+    type: string
+    description: variables capturing if there were metastases at specific locations at diagnosis (brain)
+  CS_Mets_at_Dx_Liver_Desc:	
+    type: string
+    description: variables capturing if there were metastases at specific locations at diagnosis (liver)
+  CS_Mets_at_Dx_Lung_Desc:	
+    type: string
+    description: variables capturing if there were metastases at specific locations at diagnosis (bone, brain, liver, lung, distant lymph nodes, or other)
+  Mets_at_Dx_Distant_LN:	
+    type: string
+    description: variables capturing if there were metastases at specific locations at diagnosis (distant lymph nodes)
+  Mets_at_Dx_Other:	
+    type: string
+    description: variables capturing if there were metastases at specific locations at diagnosis (other)
+  TNM_Edition_Number_Desc:	
+    type: string
+    description: edition of the AJCC TNM Staging guide used to determine staging
+
 
   subject:
     $ref: "_definitions.yaml#/to_one"
