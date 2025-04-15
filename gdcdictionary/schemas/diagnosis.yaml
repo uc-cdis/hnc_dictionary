@@ -67,7 +67,7 @@ properties:
   Sequence_Number:
     description: if patient has had only one malignancy vs. many
     type: string
-  CS_Site_Specific_Factor_1:	
+  CS_Site_Specific_Factor_1:
     description: CS_Site_Specific_Factor_1
     type: string
   CS_Site_Specific_Factor_2:
@@ -100,10 +100,10 @@ properties:
   CS_Tumor_Size:
     description: CS tumor size
     type: string
-  Size_of_Tumor:	
+  Size_of_Tumor:
     description: size of tumor
     type: string
-  Tumor_Size_Clinical:	
+  Tumor_Size_Clinical:
     description: clinical tumor size
   Tumor_Size_Pathological:
     description: pathological tumor size
@@ -111,68 +111,68 @@ properties:
   Tumor_Size_Summary:
     description: tumor size summary
     type: string
-  Regional_Nodes_Exam:	
+  Regional_Nodes_Exam:
     description: number of lymph nodes examined during staging
     type: integer
-  Regional_Nodes_Positive:	
+  Regional_Nodes_Positive:
     type: integer
     description: number of lymph nodes positive for cancer
-  Clinical_T:	
+  Clinical_T:
     type: string
     description: staging variables for T (primary tumor) as determined by clinical/radiographic examination
-  Clinical_N:	
+  Clinical_N:
     type: string
     description: staging variables for N (nodes) as determined by clinical/radiographic examination
-  Clinical_M:	
+  Clinical_M:
     type: string
     description: staging variables for M (metastases) as determined by clinical/radiographic examination
-  Clinical_Stage_Group:	
+  Clinical_Stage_Group:
     type: string
     description: staging variables for overall stage (1, 2, 3, 4) as determined by clinical/radiographic examination
-  Pathologic_T:	
+  Pathologic_T:
     type: string
     description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease.
-  Pathologic_N:	
+  Pathologic_N:
     type: string
     description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease).
-  Pathologic_M:	
+  Pathologic_M:
     type: string
     description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease).
-  Pathologic_Stage_Descriptor:	
+  Pathologic_Stage_Descriptor:
     type: string
     description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease).
-  Pathologic_Stage_Group:	
+  Pathologic_Stage_Group:
     type: string
     description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease).
   # SEER_Summary_Stage_2000 from ENT_CA_DM_CancerRegistry_fake.txt
-  Site_of_Distant_Metastasis_1_Desc:	
+  Site_of_Distant_Metastasis_1_Desc:
     type: string
     description: variables capturing sites of distant mets
-  Site_of_Distant_Metastasis_2_Desc:	
+  Site_of_Distant_Metastasis_2_Desc:
     type: string
     description: variables capturing sites of distant mets
-  Site_of_Distant_Metastasis_3_Desc:	
+  Site_of_Distant_Metastasis_3_Desc:
     type: string
     description: variables capturing sites of distant mets
-  CS_Mets_at_Dx_Bone_Desc:	
+  CS_Mets_at_Dx_Bone_Desc:
     type: string
     description: variables capturing if there were metastases at specific locations at diagnosis (bone)
-  CS_Mets_at_Dx_Brain_Desc:	
+  CS_Mets_at_Dx_Brain_Desc:
     type: string
     description: variables capturing if there were metastases at specific locations at diagnosis (brain)
-  CS_Mets_at_Dx_Liver_Desc:	
+  CS_Mets_at_Dx_Liver_Desc:
     type: string
     description: variables capturing if there were metastases at specific locations at diagnosis (liver)
-  CS_Mets_at_Dx_Lung_Desc:	
+  CS_Mets_at_Dx_Lung_Desc:
     type: string
     description: variables capturing if there were metastases at specific locations at diagnosis (bone, brain, liver, lung, distant lymph nodes, or other)
-  Mets_at_Dx_Distant_LN:	
+  Mets_at_Dx_Distant_LN:
     type: string
     description: variables capturing if there were metastases at specific locations at diagnosis (distant lymph nodes)
-  Mets_at_Dx_Other:	
+  Mets_at_Dx_Other:
     type: string
     description: variables capturing if there were metastases at specific locations at diagnosis (other)
-  TNM_Edition_Number_Desc:	
+  TNM_Edition_Number_Desc:
     type: string
     description: edition of the AJCC TNM Staging guide used to determine staging
 
