@@ -50,8 +50,41 @@ links:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  subject:
-    $ref: "_definitions.yaml#/to_one"
+  # ENT_CA_DM_Labvantage_fake.txt	List of samples banked for 8980 protocol in Labvantage, managed by the HTRC
+  protocol_number:
+    type: string
+    description: The protocol number for the sample, e.g., '8980'.
+  procedure_date:
+    type: string
+    description: date/time of sample collection or reception at the HTRC
+  sample_number:
+    type: string
+    description: Sample ID unique to specific sample. Newer samples begin with S, older samples do not.
+  status:
+    type: string
+    description: status of sample within HTRC. In Circulation is the best, it means that sample is actively banked at HTRC.
+  sample_type:
+    type: string
+    description: The type of sample (plasma, serum, DNA, whole blood, unstained slide, FFPE tissue, OCT tissue)
+  body_fluid_code:
+    type: string
+    description: Designates which tubes samples were collected in
+  sample_volume:
+    type: integer
+    description: volume of sample in milliliters
+  dna_concentration:
+    type: number
+    description: metrics collected during DNA isolation
+  dna_260_280:
+    type: number
+    description: The ratio of absorbance at 260 nm and 280 nm; used to assess the purity of nucleic acid sample.
+  dna_od_260:
+    type: number
+    description: The optical density of a nucleic acid sample measured at a wavelength of 260 nm; for determining the concentration of nucleic acid samples.
 
+  subject:
+    description: The submitter_id or id of the subject this sample belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
   dataset:
+    description: The submitter_id or id of the dataset this sample belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"
