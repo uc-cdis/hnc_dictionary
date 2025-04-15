@@ -104,6 +104,7 @@ properties:
     description: size of tumor
     type: string
   Tumor_Size_Clinical:
+    type: string
     description: clinical tumor size
   Tumor_Size_Pathological:
     description: pathological tumor size
