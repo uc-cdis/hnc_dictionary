@@ -42,20 +42,9 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  # tumor_grade:
-  #   term:
-  #     $ref: "_terms.yaml#/tumor_grade"
-  #   enum:
-  #     - "GX Grade cannot be assessed (undetermined grade)"
-  #     - "G1 Well differentiated (low grade)"
-  #     - "G2 Moderately differentiated (intermediate grade)"
-  #     - "G3 Poorly differentiated (high grade)"
-  #     - "G4 Undifferentiated (high grade)"
-  #     - "Unknown"
-
   # DX from ENT_CA_DM_CancerRegistry_fake.txt
   Date_of_First_Contact:
-    description: date of first contact at UChicago (I believe)
+    description: date of first contact at UChicago
     type: string
   Date_of_Initial_Diagnosis:
     description: date where cancer first diagnosed
@@ -70,7 +59,7 @@ properties:
     description: ICD10 code descr for primary site
     type: string
   histological_diagnosis: 
-    description: Histo/Behavior ICD-O-3	histological diagnosis by ICD-O-3 code
+    description: histological diagnosis by ICD-O-3 code
     type: string
   Laterality:
     description: left vs. right vs. NA
@@ -142,19 +131,19 @@ properties:
     description: staging variables for overall stage (1, 2, 3, 4) as determined by clinical/radiographic examination
   Pathologic_T:	
     type: string
-    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease.
   Pathologic_N:	
     type: string
-    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease).
   Pathologic_M:	
     type: string
-    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease).
   Pathologic_Stage_Descriptor:	
     type: string
-    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease).
   Pathologic_Stage_Group:	
     type: string
-    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease). Unsure what “Descriptor” is
+    description: staging variables for TNM/Stage determined by pathological examination (post surgery/excision of disease).
   # SEER_Summary_Stage_2000 from ENT_CA_DM_CancerRegistry_fake.txt
   Site_of_Distant_Metastasis_1_Desc:	
     type: string
