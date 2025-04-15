@@ -67,8 +67,57 @@ properties:
     description: Insurance paying at time of diagnosis
     type: string
   Class_of_Case_Desc:
-    description: Class of case description
     type: string
+    description: Class of case description      
+  # demographics from ENT_CA_DM_CancerRegistry_fake.txt
+  Date_of_Last_Contact:
+      type: string
+      description: date last contact was made with the patient
+  Vital_Status_Desc:
+      type: string
+      description: if patient is dead or alive aka survival status
+  Cancer_Status_Desc:
+      type: string
+      description: if at date of last contact patient has evidence of the tumor referred to in the rest of this row, aka if they are disease free or not
+  Date_First_Recurrence:
+      type: string
+      description: date of recurrences
+  Type_First_Recurrence_Desc:
+      type: string
+      description: type of recurrences
+  Cause_of_Death_Desc:
+      type: string
+      description: if death was cancer related, due to other causes, or unknown
+  CancerRegistry_PatientID:
+      type: string
+      description: Patient ID in the Cancer Registry. Has been censored in this dataset
+  # demographics from ENT_CA_DM_Cohort_fake.txt
+
+  # mrn: # duplicate
+  #     type: string
+  #     description: medical record number
+  pt_name:
+      type: string
+      description: patient first & last name (removed for toy dataset)
+  gender: # possible duplicate
+      type: string
+      description: male or female
+  race: # possible duplicate
+      type: string
+      description: patient race
+  Ethnicity: # possible duplicate
+      type: string
+      description: hispanic or latino origin
+  # date_of_birth: # duplicate
+  #     type: string
+  #     description: patient's date of birth
+  date_of_death:
+      type: string
+      description: patients only have if deceased and is manually recorded by staff, some death dates are unknown
+  zip_code:
+      type: string
+      description: patient home zip code, censored for toy dataset
+
 
   dataset:
     description: The submitter_id or id of the dataset this subject belongs to, i.e., a link to a record in the parent node.

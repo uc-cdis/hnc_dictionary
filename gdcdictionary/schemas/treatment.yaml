@@ -54,6 +54,88 @@ required:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
+  # initial tx from ENT_CA_DM_CancerRegistry_fake.txt
+  Rx_Course_Desc:
+    type: string
+    description: each row of table corresponds to a treatment/diagnostic procedure. Course description marks if the row was part of a first or second course of treatment
+  Rx_Start_Date:
+    type: string
+    description: Start date of treatment
+  Rx_Type:
+    type: string
+    description: code (D, R, C, S, I, P) standing for treatment (Rx) types - diagnostic procedure, radiation, surgery, chemotherapy, immunotherapy, palliative therapy
+  Rx_Type_Desc:
+    type: string
+    description: code (D, R, C, S, I, P) standing for treatment (Rx) type - diagnostic procedure, radiation, surgery, chemotherapy, immunotherapy, palliative therapy
+  Rx_Code_Desc:
+    type: string
+    description: a specific description of the treatment/diagnostic procedure
+  Treatment_This_Facility_Desc:
+    type: string
+    description: was the treatment done at UChicago
+
+  # first_course_vars			each line records the date & details of the first diagnostic procedure, chemo, immunotherapy, and surgery the patient had 
+  First_Course_Dx:
+    type: string
+    description: Date of first diagnosis/staging and what procedure was used to make that diagnosis/staging
+  Staging_Date:
+    type: string
+    description: Date of first diagnosis/staging and what procedure was used to make that diagnosis/staging
+  First_Course_Dx_Staging_Proc_Hosp_Desc:
+    type: string
+    description: Date of first diagnosis/staging and what procedure was used to make that diagnosis/staging
+  First_Course_Chemotherapy_Date:
+    type: string
+    description: start date of first chemo regimen (single agent vs. combination vs. none) (I would ignore that the “None” values mention an autopsy)
+  First_Course_Chemotherapy_Hosp_Desc:
+    type: string
+    description: start description of first chemo regimen (single agent vs. combination vs. none) (I would ignore that the “None” values mention an autopsy)
+  First_Course_Immunotherapy_Date:
+    type: string
+    description: start date confirming immunotherapy was ever given (None means that patient never got immunotherapy)
+  First_Course_Immunotherapy_Hosp_Desc:
+    type: string
+    description: start description confirming immunotherapy was ever given (None means that patient never got immunotherapy)
+  Date_of_First_Surgery:
+    type: string
+    description: date of first surgery received 
+  First_Course_Surg_Prim_Site_Hosp_Desc:
+    type: string
+    description: hospital location where first surgery received was performed
+  First_Course_Scope_Reg_LN_Surg_Hosp_Desc:
+    type: integer
+    description: how many lymph nodes were removed during first surgery
+  Scope_Reg_LN_Surgery_Desc:
+    type: integer
+    description: how many lymph nodes were removed during first surgery
+  # Radiation variables from ENT_CA_DM_CancerRegistry_fake.txt
+Date_RT_Started:
+    type: string
+    description: start date of RT
+Location_of_Radiation_Treatment_Desc:
+    type: string
+    description: bodily site of radiation treatment
+Radiation_Treatment_Volume_Desc:
+    type: string
+    description: volume of radiation treatment
+Regional_Treatment_Modality_Desc:
+    type: string
+    description: type of radiation treatment given
+Regional_Dose_cGy:
+    type: string
+    description: total dose delivered during radiation course (not counting boost)
+Boost_RT_Modality_Desc:
+    type: string
+    description: type of boost dose given
+Boost_Dose_cGy:
+    type: string
+    description: amount of boost dose given
+Subseq_Course_Rx_Summary:
+    type: string
+    description: uses Rx_Type codes to designate that patient received subsequent procedures/treatments after their first course. “R, C” means patient received subsequent radiation & chemo
+
+
+  # old Gen3 props:
   days_to_treatment_end:
     term:
       $ref: "_terms.yaml#/days_to_treatment_end"
