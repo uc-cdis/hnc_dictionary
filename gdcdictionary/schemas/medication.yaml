@@ -42,51 +42,390 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  dose_sequence_number:
-    description: The sequence number of a specific dose of a medication given in a series of doses.
+  # medication tx; Medications & Treatments from ENT_CA_DM_Treatment_Plan_fake.txt; Treatment Plans; Has some overlap with Meds_Inpatient/Meds_Outpatient, but this table is so useful because it organizes medications into specific plans and days
+  TREATMENT_PLAN_ID:
+    type: string
+    description: unique ID of treatment plan
+  PLAN_RECORD_TYPE_C:
+    type: string
+    description: code for plan record type
+  PLAN_STATUS_C:
+    type: string
+    description: code of plan status
+  PLAN_STATUS_NAME:
+    type: string
+    description: name of plan status
+  PLAN_VERSION:
+    type: string
+    description: plan version
+  PLAN_CREATED_DATETIME:
+    type: string
+    description: day/time plan was originally created in Epic as a treatment plan
+  PLAN_CREATOR_USER_ID:
+    type: string
+    description: ID of user who created plan in Epic
+  PLAN_START_DATE:
+    type: string
+    description: day/time plan was started
+  PLAN_DISCON_DATETIME:
+    type: string
+    description: day/time plan was discontinued
+  PLAN_DISCON_USER_ID:
+    type: string
+    description: ID of user who discontinued plan for patient
+  PLAN_DISCON_REASON_C:
+    type: string
+    description: code of reason why plan was discontinued
+  PLAN_DISCON_REASON_NAME:
+    type: string
+    description: name of reason why plan was discontinued
+  PLAN_NAME:
+    type: string
+    description: name of plan
+  PLAN_DISPLAY_NAME:
+    type: string
+    description: display name of plan
+  PROTOCOL_ID:
+    type: string
+    description: ID, name, and display name of protocol. Usually very similar to Plan Name
+  PROTOCOL_NAME:
+    type: string
+    description: ID, name, and display name of protocol. Usually very similar to Plan Name
+  PROTOCOL_DISPLAY_NAM:
+    type: string
+    description: ID, name, and display name of protocol. Usually very similar to Plan Name
+  PROTOCOL_CONTACT_DATE_REAL:
+    type: string
+    description: protocol contact date
+  PROTOCOL_CONTACT_NUM:
+    type: string
+    description: protocol contact number
+  PROTOCOL_IS_RESEARCH_YN:
+    type: string
+    description: whether or not the protocol is a clinical trial
+  PLAN_PROV_ID:
+    type: string
+    description: ID of provider who ordered plan
+  REFERRAL_ID:
+    type: string
+    description: ID of provider who referred patient
+  TREATMENT_GOAL_C:
+    type: string
+    description: code of treatment goal (curative vs. palliative vs. adjuvant, etc.)
+  TREATMENT_GOAL_NAME:
+    type: string
+    description: name of treatment goal (curative vs. palliative vs. adjuvant, etc.)
+  EPISODE_ID:
+    type: string
+    description: unique ID of episode (all Chemotherapy for the most part)
+  EPISODE_TYPE_ID:
+    type: string
+    description: ID of the type of episode (all Chemotherapy for the most part)
+  EPISODE_TYPE_NAME:
+    type: string
+    description: name of the type of episode (all Chemotherapy for the most part)
+  PLAN_STARTING_CYCLE_NUM:
+    type: string
+    description: cycle number the plan starts on (some plans are continuations of previous plans and start at a later cycle)
+  CYCLE_ID:
+    type: string
+    description: ID, name, and number corresponding to the treatment cycle. Cycles usually correspond to a few weeks. Some medications are only given every 3 weeks and others are given each week, so each cycle the patient receives the same medications in the same order, and this multi-week cycle is repeated X number of times in a single plan.
+  CYCLE_NAME:
+    type: string
+    description: ID, name, and number corresponding to the treatment cycle. Cycles usually correspond to a few weeks. Some medications are only given every 3 weeks and others are given each week, so each cycle the patient receives the same medications in the same order, and this multi-week cycle is repeated X number of times in a single plan.
+  CYCLE_NUM:
+    type: string
+    description: ID, name, and number corresponding to the treatment cycle. Cycles usually correspond to a few weeks. Some medications are only given every 3 weeks and others are given each week, so each cycle the patient receives the same medications in the same order, and this multi-week cycle is repeated X number of times in a single plan.
+  CYCLE_START_DATE:
+    type: string
+    description: start date of the cycle
+  CYCLE_STATUS_C:
+    type: string
+    description: code of the cycle's status (e.g. completed vs. started. Started usually means it was completed but sometimes this is not updated).
+  CYCLE_STATUS_NAME:
+    type: string
+    description: name of the cycle's status (e.g. completed vs. started. Started usually means it was completed but sometimes this is not updated).
+  TREATMENT_DAY_ID:
+    type: string
+    description: ID corresponding to the specific treatment day
+  TREAT_DAY_CONTACT_DATE_REAL:
+    type: string
+    description: treatment day contact date
+  TREATMENT_DAY_NAME:
+    type: string
+    description: name of treatment day relative to the start of the cycle
+  DAY_NUM:
     type: integer
-
-  medication_code:
-    description: The code for a specific medication, assigned by the code system.
+    description: Day number relative to the start of the cycle (usually 1, 8, 15 which is the start of each week, if a cycle is 3 weeks for example).
+  DAY_TYPE_C:
     type: string
-
-  medication_code_system:
-    term:
-      $ref: "_terms.yaml#/medication_code_system"
+    description: Day type code
+  TREATMENT_DAY_TREATMENT_DATE:
     type: string
-
-  medication_manufacturer:
-    term:
-      $ref: "_terms.yaml#/medication_manufacturer"
+    description: actual day of treatment
+  TREATMENT_DAY_PLANNED_DATE:
     type: string
-
-  medication_name:
-    term:
-      $ref: "_terms.yaml#/medication_name"
+    description: day that treatment was planned
+  DAY_LENGTH:
     type: string
-
-  medication_type:
-    description: A categorization of medication used to describe the type of medication the patient was perscribed or administered.
-    enum:
-      - ACE inhibitors
-      - Bronchodilator
-      - Chemotherapy
-      - Immunosuppressive medication
-      - Immunotherapy
-      - Inhaled steroids
-      - NSAID
-      - Protease inhibitor
-      - Supplemental oxygen
-      - Systemic steroids
-      - Vaccine
-
-  days_to_medication_start:
-    description: The number of days from the index date to the date the case started a specific medication.
+    description: length of treatment day
+  DAY_STARTED_DATETIME:
+    type: string
+    description: day/time treatment was started
+  DAY_STATUS_C:
+    type: string
+    description: code of status of day
+  DAY_STATUS_NAME:
+    type: string
+    description: name of status of day
+  CANCEL_DAY_REASON_C:
+    type: string
+    description: code of reason why treatment was cancelled
+  CANCEL_DAY_REASON_NAME:
+    type: string
+    description: name of reason why treatment was cancelled
+  DEFER_DAY_REASON_C:
+    type: string
+    description: code of reason why treatment was deferred
+  DEFER_DAY_REASON_NAME:
+    type: string
+    description: name of reason why treatment was deferred
+  DAY_GIVEN_EXTERNAL_REASON_C:
+    type: string
+    description: code of reason why treatment was given externally
+  DAY_GIVEN_EXTERNAL_REASON_NAME:
+    type: string
+    description: name of reason why treatment was given externally
+  ORDER_CATEGORY_C:
+    type: string
+    description: code of order category. Whether order corresponds to a pre/post-medication given, the chemotherapy regimen, a lab blood test, or other orders. Treatment Plan consists of everything, all orders, a patient may get as part of a plan.
+  ORDER_CATEGORY_NAME:
+    type: string
+    description: name of order category. Whether order corresponds to a pre/post-medication given, the chemotherapy regimen, a lab blood test, or other orders. Treatment Plan consists of everything, all orders, a patient may get as part of a plan.
+  PROC_ID:
+    type: string
+    description: the ID for procedures done as part of a plan, such as ordering a blood test
+  MEDICATION_ID:
+    type: string
+    description: ID of medication given as part of the plan
+  ORDER_DISCRETE_DOSE_MIN:
     type: integer
-
-  days_to_medication_end:
-    description: The number of days from the index date to the date the case stopped a specific medication.
+    description: minimum dosages to be given as part of the order
+  ORDER_DISCRETE_DOSE_MAX:
     type: integer
+    description: maximum dosages to be given as part of the order
+  ORDER_DOSE_UNIT_C:
+    type: string
+    description: code of medication dose units
+  ORDER_DOSE_UNIT_NAME:
+    type: string
+    description: name of medication dose units
+  ORDER_TYPE_C:
+    type: string
+    description: code of order type (meds vs. labs vs. other). Similar to order category, but less specific
+  ORDER_TYPE_NAME:
+    type: string
+    description: name of order type (meds vs. labs vs. other). Similar to order category, but less specific
+  ORDERING_MODE_C:
+    type: string
+    description: code of ordering mode (inpatient vs. outpatient)
+  ORDER_ID:
+    type: string
+    description: unique ID of order in EMR/Epic 
+  # medication tx; Medications & Treatments from ENT_CA_DM_Med_Rec_Admission_fake.txt; Admission meds: Medications already being taken at start of hospital stay/at admission and need to be ordered
+  ENC_TYPE_C:
+    type: string
+    description: encounter type code
+  ENC_TYPE:
+    type: string
+    description: encounter type
+  ENC_date:
+    type: string
+    description: date of encounter
+  Hosp_Adm_Dttm:
+    type: string
+    description: day/time of hospital admissionfor this stay
+  Hosp_Dc_Dttm:
+    type: string
+    description: day/time of hospital discharge for this stay
+  ADMIT_DEPT_ID:
+    type: string
+    description: ID of department/physical location where patient was admitted
+  ADMIT_DEPT:
+    type: string
+    description: name of department/physical location where patient was admitted
+  ADMIT_SERV_C:
+    type: string
+    description: ID of service admitting patient for this visit
+  ADMIT_SERVICE_AREA:
+    type: string
+    description: name of service admitting patient for this visit
+  ADMISSION_PROV_ID:
+    type: string
+    description: ID of admitting provider for this hospital visit
+  ADMISSION_MD:
+    type: string
+    description: name of admitting provider for this hospital visit
+  ADM_PROV_SPEC:
+    type: string
+    description: specialty of admitting provider for this hospital visit
+  ORDER_PROV_ID:
+    type: string
+    description: ID of provider who ordered specific medication
+  ORDER_PROV:
+    type: string
+    description: name of provider who ordered specific medication
+  MED_REC_EVENT_C:
+    type: string
+    description: medication reconciliation event code
+  MED_REC_EVENT:
+    type: string
+    description: medication reconciliation event
+  MED_ORDERING_MODE:
+    type: string
+    description: medications were ordered 
+  MED_ORDER_DTTM:
+    type: string
+    description: day/time when medication was ordered
+  MED_DC_DTTM:
+    type: string
+    description: day/time when medication was discontinued
+  MED_REC_DTTM:
+    type: string
+    description: day/time when medication was reconciled or received (unsure)
+  MED_REC_TYPE_C:
+    type: string
+    description: code of medication reconciliation type
+  MED_REC_TYPE:
+    type: string
+    description: medication reconciliation type
+  MED_REC_ACTION_C:
+    type: string
+    description: code of medication reconciliation action
+  MED_REC_ACTION:
+    type: string
+    description: medication reconciliation action
+  RSN_FOR_DISCON_C:
+    type: string
+    description: code for why med was discontinued
+  RSN_FOR_DISCON_MED:
+    type: string
+    description: description for why med was discontinued
+  ORDER_MED_ID:
+    type: string
+    description: unique medication order ID
+  MEDICATION_ID:
+    type: string
+    description: ID of medication. Each ID in MEDICATION ID should be unique to the specific medicine, route, dose, and frequency, you may be able to make a medication lookup table and relate it to the administration tables via the ID
+  MEDICATION:
+    type: string
+    description: name of medication. Each ID in MEDICATION ID should be unique to the specific medicine, route, dose, and frequency, you may be able to make a medication lookup table and relate it to the administration tables via the ID
+  ORDER_MED_DOSE:
+    type: string
+    description: specific dose of medication that was ordered
+  MED_ROUTE:
+    type: string
+    description: route by which medication was given (i.e. oral is mouth, subcutaneous is under the skin, G-Tube is by gastronomy tube, etc.)
+  ORDER_MED_FREQ:
+    type: string
+    description: frequency by which medication dose should be given/taken
+  MED_THERA_CLASS_C:
+    type: string
+    description: code of medication's therapeutic class (i.e. antineoplastics are cancer drugs)
+  MED_THERA_CLASS:
+    type: string
+    description: code of medication's therapeutic class (i.e. antineoplastics are cancer drugs)
+  MED_PHARM_CLASS_C:
+    type: string
+    description: code of medication's pharmacological class
+  MED_PHARM_CLASS:
+    type: string
+    description: name of medication's pharmacological class
+  PHARM_SUBCLASS_C:
+    type: string
+    description: code of medication's pharmacological subclass
+  PHARM_SUB_CLASS:
+    type: string
+    description: name of medication's pharmacological subclass
+  EVENT_MED_REC_LINE:
+    type: string
+    description: event medication reconciliation line
+  # medication tx; Medications & Treatments from ENT_CA_DM_Med_Rec_Discharge_fake.txt; Medications being taken at end of hospital stay/at discharge		file_notes	Medications being taken at end of hospital stay/at admission; Same vars as Med_Rec_Admission
+  # medication tx; Medications & Treatments from ENT_CA_DM_Meds_Inpatient_fake.txt: Medications given during inpatient stay
+  # medication tx; Medications & Treatments from ENT_CA_DM_Meds_Outpatient_fake.txt; Outpatient meds: Medications assigned to be taken as outpatient medications (not at the hospital). Mostly the same as Meds_Inpatient, but mar_dose, mar_gave_dttm, mar_sched_dttm are missing because medications are taken at home and not given in hospital
+  enc_date:
+    type: string
+    description: date of encounter
+  med_dept:
+    type: string
+    description: department where medication was ordered/given within
+  order_med_id:
+    type: string
+    description: unique ID corresponding to medication's order in hospital system
+  ordering_date:
+    type: string
+    description: date medication was ordered
+  thera_class_c:
+    type: string
+    description: code of medications therapeutic class (i.e. antineoplastics are cancer drugs)
+  thera_class:
+    type: string
+    description: name of medications therapeutic class (i.e. antineoplastics are cancer drugs)
+  pharm_class_c:
+    type: string
+    description: code of medication's pharmacological class
+  pharm_class:
+    type: string
+    description: name of medication's pharmacological class
+  pharm_subclass_c:
+    type: string
+    description: code of medication's pharmacological subclass
+  pharm_subclass:
+    type: string
+    description: name of medication's pharmacological subclass
+  medication_id:
+    type: string
+    description: ID of medication
+  med_name:
+    type: string
+    description: name of medication
+  gpi:
+    type: string
+    description: generic name & ID of medication
+  generic_name:
+    type: string
+    description: generic name & ID of medication
+  order_med_dose:
+    type: string
+    description: specific dose of medication that was ordered
+  med_route:
+    type: string
+    description: route by which medication was given
+  order_med_freq:
+    type: string
+    description: frequency by which medication dose should be given/taken
+  order_start_dttm:
+    type: string
+    description: day/time of order start & end (expiration of order)
+  order_end_dttm:
+    type: string
+    description: day/time of order end (expiration of order)
+  mar_dose:
+    type: string
+    description: medication dose actually given
+  mar_gave_dttm:
+    type: string
+    description: day/time of when medication was actually given
+  mar_sched_dttm:
+    type: string
+    description: day/time of when medication was scheduled
+  ordering_mode:
+    type: string
+    description: ordered inpatient vs. outpatient
+  order_status:
+    type: string
+    description: if order has been sent or suspended (I think manually), but overall I am unsure
+
 
   subject:
     description: The submitter_id or id of the patient or subject receiving this medication, i.e., a link to a record in the parent node.

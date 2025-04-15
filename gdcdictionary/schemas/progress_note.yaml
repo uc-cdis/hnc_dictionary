@@ -1,0 +1,87 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "progress_note"
+title: Progress Note
+type: object
+nodeTerms: null
+namespace: https://imaging-hub.data-commons.org
+category: clinical
+program: '*'
+project: '*'
+description: Clinical progress notes are formal records that document a patient's clinical status, medical necessity, treatment progress, and plans for future care. They are used to communicate findings, opinions, and plans between healthcare professionals and to facilitate retrospective reviews of a case. These notes are essential for documenting treatment outcomes, legal purposes, and reimbursement.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subject
+    backref: visit
+    label: member_of
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subject
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  # Raw Text Notes from ENT_CA_DM_Progress_Notes_Fixed_fake.txt; Progress notes recorded by medical personnel for patient visits in hospital		file_notes	To not overwhelm with data I filtered the Progress Notes just for Oncology related notes: depts=['HEMATOLOGY/ONCOLOGY', 'OTOLARYNGOLOGY', 'GENERAL SURGERY','RADIOLOGY', 'RADIATION THERAPY', 'SPEECH & SWALLOWING','IV THERAPY','ENT GENERAL','HEMATOLOGY ONC NT','PATHOLOGY','ENT ONCOLOGY','ORAL SURGERY']
+  NOTE_ID:
+    type: string
+    description: Unique ID for note
+  IP_NOTE_TYPE:
+    type: string
+    description: Type of note (Progress Note vs. Consult) & ID corresponding to note type
+  IP_NOTE_TYPE_C:
+    type: string
+    description: ID corresponding to note type
+  NOTE_STATUS_C:
+    type: string
+    description: code for status of note - Signed vs. Addendum 
+  NOTE_STATUS:
+    type: string
+    description: status of note - Signed vs. Addendum
+  NOTE_CSN_ID:
+    type: string
+    description: note contact serial number
+  DATE_OF_SERVICE_DTTM:
+    type: string
+    description: date & time of note creation
+  AUTHOR_NAME:
+    type: string
+    description: Name of author of note
+  AUTHOR_SERVICE_C:
+    type: string
+    description: code for service/department corresponding to author
+  AUTHOR_SERVICE:
+    type: string
+    description: name of service/department corresponding to author
+  FLAG_Service:
+    type: string
+    description: 
+  NOTE_File_DTTM:
+    type: string
+    description: when note was filed
+  Note_Narr:
+    type: string
+    description: raw text of progress note
+
+  subject:
+    description: The submitter_id or id of the subject this progress note belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_many"

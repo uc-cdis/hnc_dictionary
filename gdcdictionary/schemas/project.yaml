@@ -3,14 +3,17 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "project"
 title: Project
 type: object
-program: '*'
-project: '*'
+namespace: https://gdc.cancer.gov
 category: administrative
-description: >
-  Any specifically defined piece of work that is undertaken or attempted to meet a single
-  requirement. (NCIt C47885)
+project: '*'
+program: '*'
+description: >-
+  Any specifically defined piece of work that is undertaken or attempted to meet a
+  single requirement. (NCIt C47885)
 additionalProperties: false
 submittable: true
+downloadable: true
+previous_version_downloadable: true
 validators: null
 
 systemProperties:
@@ -20,44 +23,136 @@ systemProperties:
   - releasable
   - intended_release_date
 
-required:
-  - code
-  - name
-  - programs
-
-uniqueKeys:
-  - [ id ]
-  - [ code ]
-
 links:
-  - name: program
-    backref: project
+  - name: programs
+    backref: projects
     label: member_of
     target_type: program
     multiplicity: many_to_one
     required: true
 
-constraints: null
+required:
+  - code
+  - type
+  - name
+  - state
+  - programs
+  - dbgap_accession_number
+
+uniqueKeys:
+  - [id]
+  - [code]
 
 properties:
 
-  code:
-    type: string
-    description: "Unique identifier for the project."
-
-  id:
-    $ref: "_definitions.yaml#/UUID"
-    systemAlias: node_id
-    description: "UUID for the project." # TOREVIEW
-
-  name:
-    type: string
-    description: "Display name/brief description for the project." # TOREVIEW
+  availability_type:
+    description: "Is the project open or restricted?"
+    enum:
+      - Open
+      - Restricted
 
   type:
     type: string
 
-  program:
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    description: >-
+      UUID for the project
+
+  awg_review:
+    description: >-
+      Indicates that the project is an AWG project.
+    type: boolean
+    default: false
+
+  code:
+    description: >-
+      Project code
+    type: string
+
+  dbgap_accession_number:
+    description: >-
+      The dbgap accession number for the project.
+    type: string
+
+  disease_type:
+    description: >-
+      Full name for the project
+    type: string
+
+  intended_release_date:
+    $ref: "_definitions.yaml#/datetime"
+    description: >-
+      Tracks a Project's intended release date.
+
+  in_review:
+    description: >-
+      Indicates that the project is under review by the submitter. Upload and data
+      modification is disabled.
+    type: boolean
+    default: false
+
+  is_legacy:
+    description: >-
+      Indicates whether a project will appear in the Legacy Archive.
+    type: boolean
+    default: false
+
+  name:
+    description: >-
+      Display name for the project
+    type: string
+
+  primary_site:
+    description: >-
+      Primary site for the project
+    type: string
+
+  state:
+    description: >-
+      The possible states a project can be in.  All but `open` are equivalent to some
+      type of locked state.
+    default: open
+    enum:
+      - open
+      - review
+      - submitted
+      - processing
+      - processed
+      - closed
+      - legacy
+
+  release_requested:
+    description: >-
+      User requests that the GDC release the project. Release can only be requested
+      if the project is releasable.
+    type: boolean
+    default: false
+
+  released:
+    description: >-
+      To release a project is to tell the GDC to include all submitted entities in
+      the next GDC index.
+    type: boolean
+    default: false
+
+  releasable:
+    description: >-
+      A project can only be released by the user when `releasable` is true.
+    type: boolean
+    default: false
+
+  request_submission:
+    description: >-
+      Indicates that the user has requested submission to the GDC for harmonization.
+    type: boolean
+    default: false
+
+  submission_enabled:
+    description: >-
+      Indicates if submission to a project is allowed.
+    type: boolean
+    default: true
+
+  programs:
     $ref: "_definitions.yaml#/to_one"
-    description: >
-      The program to which the project belongs.

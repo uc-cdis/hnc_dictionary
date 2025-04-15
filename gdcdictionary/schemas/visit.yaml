@@ -22,7 +22,7 @@ systemProperties:
 
 links:
   - name: subject
-    backref: visit
+    backref: progress_note
     label: member_of
     target_type: subject
     multiplicity: many_to_one
@@ -40,6 +40,65 @@ uniqueKeys:
 properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
+
+
+  # visits from ENT_CA_DM_Encounters_fake.txt
+  enc_date:
+    type: string
+    description: date of the encounter
+  enc_type_c:
+    type: string
+    description: code of type of encounter (e.g. Appointment, Treatment, Surgery, Office Visit)
+  encounter_type:
+    type: string
+    description: name of type of encounter (e.g. Appointment, Treatment, Surgery, Office Visit)
+  ed_arrival_dttm:
+    type: string
+    description: date/time arrived to emergency department (ED)
+  hosp_adm_dttm:
+    type: string
+    description: date/time of hospital admission
+  hosp_dc_dttm:
+    type: string
+    description: date/time of hospital discharge
+  department:
+    type: string
+    description: department in which encounter occurred (e.g. Radiation Oncology)
+  disch_disp_c:
+    type: string
+    description: code of disposition of patient at hospital discharge (where discharged to)
+  disch_disp:
+    type: string
+    description: disposition of patient at hospital discharge (where discharged to)
+  # visits from ENT_CA_DM_Diagnoses_fake.txt
+  dx_name:
+    type: string
+    description: diagnosis name corresponding to ICD code
+  icd9_code:
+    type: string
+    description: ICD9 codes corresponding to diagnosis
+  icd10_code:
+    type: string
+    description: ICD10 codes corresponding to diagnosis
+  dx_rank:
+    type: string
+    description: each encounter can have multiple diagnoses associated with it and they are ranked, this is recorded here
+  poa:
+    type: string
+    description: poa
+  ADM_DATE:
+    type: string
+    description: admission date of encounter. For same day outpatient encounters, discharge date (DISC_DATE) should be the same.
+  DISC_DATE:
+    type: string
+    description: discharge date of encounter. For same day outpatient encounters, admission date (ADM_DATE) should be the same
+  CRDW_START_DATE:
+    type: string
+    description: CRI Data Warehouse start date
+  CRDW_END_DATE:
+    type: string
+    description: CRI Data Warehouse end date
+
 
   subject:
     description: The submitter_id or id of the subject this visit belongs to, i.e., a link to a record in the parent node.

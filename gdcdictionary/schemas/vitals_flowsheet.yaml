@@ -1,0 +1,84 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "vitals_flowsheet"
+title: Vitals Flowsheet
+type: object
+nodeTerms: null
+namespace: https://imaging-hub.data-commons.org
+category: clinical
+program: '*'
+project: '*'
+description: Vitals flowsheets track vital signs over a period of time, allowing healthcare providers to observe trends and patterns in vital signs.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subject
+    backref: vitals_flowsheet
+    label: member_of
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subject
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  # Flowsheets	ENT_CA_VITALS_FLOWS_fake.txt	Vital results
+  pat_enc_csn_id:
+    type: string
+    description: unique ID for patient encounter, unsure what CSN is
+  flo_meas_id:
+    type: string
+    description: ID and name of measurement 
+  flo_meas_name:
+    type: string
+    description: ID and name of measurement
+  device_id:
+    type: string
+    description: ID corresponding to device which recorded measurement
+  recorded_time:
+    type: string
+    description: time of recording, appears to be not used
+  meas_value:
+    type: string
+    description: value corresponding to measurement
+  meas_location:
+    type: string
+    description: location of measurement
+  flo_group_name:
+    type: string
+    description: group name for flowsheet measurement. Looks like this variable corresponds to multiple values from the flo_meas_name column
+  units:
+    type: string
+    description: units of measurement
+  inpatient_data_id:
+    type: string
+    description: unique data ID for data for backend
+  dept_id:
+    type: string
+    description: ID of department where measurement was taken
+  CRDW_FLO_GROUP:
+    type: string
+    description: flo group used by the CRI/CRDW to group measurement values
+
+  subject:
+    description: The submitter_id or id of the subject this vitals flowsheet belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_many"

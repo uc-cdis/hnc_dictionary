@@ -1,0 +1,103 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "cytology_report"
+title: Cytology Report
+type: object
+nodeTerms: null
+namespace: https://imaging-hub.data-commons.org
+category: clinical
+program: '*'
+project: '*'
+description: Cytology reports & results from cytologists reviewing specimens collected during fine needle aspirations; used for diagnosis.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subject
+    backref: cytology_report
+    label: member_of
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subject
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  # Raw Text Notes	ENT_CA_DM_Cytology_fake.txt; Cytology reports & results: from cytologists reviewing specimens collected during fine needle aspirations, used for diagnosis; same variables as pathology_report
+
+  enc_date:
+    type: string
+    description: encounter date
+  adm_date:
+    type: string
+    description: admission date
+  disc_date:
+    type: string
+    description: discharge date
+  order_dttm:
+    type: string
+    description: day/time order was put in
+  result_dttm:
+    type: string
+    description: day/time results/note were completed
+  Order_proc_id:
+    type: string
+    description: unique order ID
+  proc_code:
+    type: string
+    description: code and description of surgical pathology procedure
+  proc_desc:
+    type: string
+    description: code and description of surgical pathology procedure
+  lab_code:
+    type: string
+    description: code and description of surgical pathology lab
+  lab_desc:
+    type: string
+    description: code and description of surgical pathology lab
+  path_value:
+    type: string
+    description: unused
+  path_note:
+    type: string
+    description: raw text note of pathology report
+  result_in_range_yn:
+    type: string
+    description: flag to denote if the result is in range
+  result_flag:
+    type: string
+    description: flag to denote if the result is abnormal
+  reference_unit:
+    type: string
+    description: reference unit of the result
+  HPV:
+    type: string
+    description: flag to denote if HPV or P16 are mentioned in raw text. Used to identify patients who HPV/p16 result or status
+  P16:
+    type: string
+    description: flag to denote if HPV or P16 are mentioned in raw text. Used to identify patients who HPV/p16 result or status
+  accession_num:
+    type: string
+    description: accession number used to identify the cytology report/cytologist review
+
+  subject:
+    description: The submitter_id or id of the subject this cytology report belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_many"

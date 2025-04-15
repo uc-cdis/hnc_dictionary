@@ -1,0 +1,169 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "radiation_flowsheet"
+title: Radiation Flowsheet
+type: object
+namespace: https://imaging-hub.data-commons.org 
+category: clinical
+program: '*'
+project: '*'
+description: A document used to track the care provided to a patient during radiation therapy. Gives overview of a patient's condition, the treatment they're receiving, any medications or instructions given, observed side effects, and relevant social information.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: diagnosis
+        backref: radiation_flowsheet
+        label: describes
+        target_type: diagnosis
+        multiplicity: many_to_one
+        required: false
+      - name: subject
+        backref: radiation_flowsheet
+        label: describes
+        target_type: subject
+        multiplicity: many_to_one
+        required: false
+      - name: visit
+        backref: radiation_flowsheet
+        label: describes
+        target_type: visit
+        multiplicity: many_to_one
+        required: false
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+required:
+  - submitter_id
+  - type
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+
+  # radiation tx	Flowsheets	ENT_CA_DM_RAD_FLOWS_fake.txt	Radiation Treatment Flowsheets; multiple rows for each patient treatment, similar to the vitals or lab flowsheets
+  pat_enc_csn_id:
+    type: string
+    description: unique ID corresponding to patient encounter
+  flo_meas_id:
+    type: string
+    description: id & name of radiation treatment variable relevant to visit, flo_group_name is display naming for flo_meas_name
+  flo_meas_name:
+    type: string
+    description: id & name of radiation treatment variable relevant to visit, flo_group_name is display naming for flo_meas_name
+  flo_group_name:
+    type: string
+    description: id & name of radiation treatment variable relevant to visit, flo_group_name is display naming for flo_meas_name
+  RADONC_RS_TR_COURSE_ID:
+    type: string
+    description: ID corresponding to number course of RT treatment
+  RADONC_RS_TR_PLAN_ID:
+    type: string
+    description: ID corresponding to specific radiation plan/protocol (i.e. 1-1 HN50Gy)
+  Plan_ID:
+    type: string
+    description: ID corresponding to specific radiation plan/protocol (i.e. 1-1 HN50Gy)
+  RADONC_RS_TR_TREATMENT_SITE:
+    type: string
+    description: body site planned to receive RT
+  Treatment_Site:
+    type: string
+    description: body site planned to receive RT
+  RADONC_RS_TR_TOTAL_FRACTIONS_FOR_CURRENT_PLAN:
+    type: integer
+    description: integer corresponding to how many total fractions (individual radiation doses/treatments) are planned (i.e. 25)
+  RADONC_RS_TR_FRACTION_FOR_CURRENT_PLAN:
+    type: integer
+    description: integer corresponding to which fraction is being given (i.e. 7 of 20)
+  RADONC_RS_TR_FRACTION_DOSE_FOR_CURRENT_PLAN:
+    type: string
+    description: Fraction dose expected to be given for this fraction aka specific treatment (usually 200 Gy)
+  RADONC_RS_TR_TOTAL_DOSE_FOR_CURRENT_PLAN:
+    type: string
+    description: Total Dose Planned for Current Plan (i.e. 5000 Gy))
+  RADONC_RS_TR_CUMULATIVE_DOSE:
+    type: string
+    description: Cumulative Dose Delivered (in Gy, i.e. 5200 Gy)
+  RADONC_RS_TR_TOTAL_PRESCRIBED_DOSE:
+    type: string
+    description: Total Prescribed Dose that will be given once all treatments are complete (i.e. 7000 Gy aka 70 cGy. Total dose can be administered over multiple plans)
+  RADONC_RS_TR_SIB_PLAN:
+    type: string
+    description: Type of radiation, a “boost”. SIB stands for simultaneous integrated boost, a radiation therapy technique that delivers a higher dose of radiation to a target volume (GTV) while keeping the dose to the surrounding area (CTV) at a normal level.
+  RADONC_RS_TR_SIB_DOSE_CHARTED:
+    type: string
+    description: Dose to be given for boost
+  RADONC_RS_LATERALITY:
+    type: string
+    description: designating left or right
+  RADONC_RS_CONFIRM_PATIENT_ID:
+    type: string
+    description: flag to confirm correct patient ID
+  Patients_ID:
+    type: string
+    description: flag to confirm correct patient ID
+  RADONC_RS_CONFIRM_TREATMENT_SITE:
+    type: string
+    description: flag to confirm correct treatment site 
+  RADONC_RS_CONFIRMED_GANTRY_CLEARANCE:
+    type: string
+    description: Gantry clearance refers to the available space or distance between the patient table and the rotating arm (gantry) of a radiation therapy machine
+  RADONC_RS_CONFIRM_TREATMENT_DEVICE:
+    type: string
+    description: flag to confirm treatment device
+  RADONC_RS_CONFIRM_IMMOBILIZATION:
+    type: string
+    description: flag to confirm patient immobilized
+  RADONC_RS_CONFIRM_IMAGES_REVIEWED:
+    type: string
+    description: flag to confirm review prior images were reviewed
+  RADONC_RS_TR_OK:
+    type: string
+    description: Confirm OK to proceed
+  RADONC_RS_TR_IMAGE_NEW:
+    type: string
+    description: flag to confirm new images taken
+  device_id:
+    type: string
+    description: ID of device used for treatment
+  recorded_time:
+    type: string
+    description: date/time of recording
+  meas_value:
+    type: string
+    description: measurement value for row, corresponds to specific value recorded flo_meas_name variable
+  meas_location:
+    type: string
+    description: location of measurement
+  units:
+    type: string
+    description: measurement units
+  inpatient_data_id:
+    type: string
+    description: specific ID of data for row to use for backend tracking
+  dept_id:
+    type: string
+    description: department ID
+
+  diagnosis:
+    description: The submitter_id or id of the diagnosis this radiation treatment flowsheet belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
+  subject:
+    description: The submitter_id or id of the subject this radiation treatment flowsheet belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
+  visit:
+    description: The submitter_id or id of the visit this radiation treatment flowsheet belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"

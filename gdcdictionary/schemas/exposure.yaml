@@ -1,0 +1,130 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "exposure"
+title: Exposure
+type: object
+namespace: https://imaging-hub.data-commons.org
+category: clinical
+program: '*'
+project: '*'
+description: >
+  Standard questionnaire used to collect substance use and other exposure records from the subject
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subject
+    backref: exposure
+    label: describes
+    target_type: subject
+    multiplicity: one_to_one
+    required: true
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+required:
+  - submitter_id
+  - type
+  - subject
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  # hx (history) from ENT_CA_DM_ETOH_fake.txt
+  # alcohol usage
+  HX_DRINK_TYPES_C_1:
+    type: string
+    description: code (is float but should be integer, coding mistake on my part), type of alcohol consumed (i.e. cans of beer, mixed drinks, wine, hard liquor, standard drinks), number of drinks per week
+  HX_DRINK_TYPES_1:
+    type: string
+    description: code (is float but should be integer, coding mistake on my part), type of alcohol consumed (i.e. cans of beer, mixed drinks, wine, hard liquor, standard drinks), number of drinks per week
+  HX_DRINKS_WK_1:
+    type: string
+    description: code (is float but should be integer, coding mistake on my part), type of alcohol consumed (i.e. cans of beer, mixed drinks, wine, hard liquor, standard drinks), number of drinks per week
+  HX_DRINK_TYPES_C_2:
+    type: string
+    description: Second set of drink type recorded
+  HX_DRINK_TYPES_2:
+    type: string
+    description: Second set of drink type recorded
+  HX_DRINKS_WK_2:
+    type: string
+    description: Second set of drink type recorded
+  HX_DRINK_TYPES_C_3:
+    type: string
+    description: Third set of drink type recorded
+  HX_DRINK_TYPES_3:
+    type: string
+    description: Third set of drink type recorded
+  HX_DRINKS_WK_3:
+    type: string
+    description: Third set of drink type recorded
+  # tobacco usage from ENT_CA_DM_Tobacco_fake.txt
+  TOB_SRC_C:
+    type: string
+    description: Source of tobacco data collection (code)
+  TOB_SOURCE:
+    type: string
+    description: Source of tobacco data collection
+  TOBACCO_USER_C:
+    type: string
+    description: is patient tobacco user? (code)
+  TOBACCO_USER:
+    type: string
+    description: is patient tobacco user?
+  SMOKING_TOB_USE_C:
+    type: string
+    description: is patient a smoker? (code)
+  SMOKING_TOB_USE:
+    type: string
+    description: is patient a smoker?
+  TOBACCO_PAK_PER_DY:
+    type: string
+    description: packs smoked per day (20 cigarettes = 1 pack)
+  TOBACCO_USED_YEARS:
+    type: string
+    description: number of years smoked
+  TOBACCO_COMMENT:
+    type: string
+    description: comment on smoking history
+  SMOKELESS_TOB_USE_C:
+    type: string
+    description: status of any smokeless tobacco usage (i.e. chewing)
+  SMOKELESS_TOB_USE:
+    type: string
+    description: tatus of any smokeless tobacco usage (i.e. chewing)
+  CIGARETTES_YN:
+    type: string
+    description: Y or N for types of tobacco used
+  PIPES_YN:
+    type: string
+    description: Y or N for types of tobacco used
+  CIGARS_YN:
+    type: string
+    description: Y or N for types of tobacco used
+  SNUFF_YN:
+    type: string
+    description: Y or N for types of tobacco used
+  CHEW_YN:
+    type: string
+    description: Y or N for types of tobacco used
+  SMOKING_START_DATE:
+    type: string
+    description: start dates of smoking
+  SMOKING_QUIT_DATE:
+    type: string
+    description: quit dates of smoking
+
+  subject:
+    description: The submitter_id or id of the subject this exposure belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
