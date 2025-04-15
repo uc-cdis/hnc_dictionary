@@ -189,4 +189,5 @@ properties:
 
 
   subject:
+    description: The submitter_id or id of the subject this diagnosis belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"

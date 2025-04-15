@@ -97,4 +97,5 @@ properties:
     description: flag for P16 value
   
   subject:
+    description: The submitter_id or id of the subject this lab result belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"

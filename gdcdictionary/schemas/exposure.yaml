@@ -126,5 +126,5 @@ properties:
     description: quit dates of smoking
 
   subject:
-    description: subject IDs linking records in this node to records in the parent node 'subject'.
+    description: The submitter_id or id of the subject this exposure belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"

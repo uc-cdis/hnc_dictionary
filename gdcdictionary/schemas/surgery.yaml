@@ -86,8 +86,11 @@ properties:
 
 
   diagnosis:
+    description: The submitter_id or id of the diagnosis this surgery belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"
   subject:
+    description: The submitter_id or id of the subject this surgery belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"
   visit:
+    description: The submitter_id or id of the visit this surgery belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"
