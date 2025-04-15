@@ -1,0 +1,91 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "radiology_report"
+title: Radiology Report
+type: object
+nodeTerms: null
+namespace: https://imaging-hub.data-commons.org
+category: clinical
+program: '*'
+project: '*'
+description: Radiology Results & Reports written by radiologists for patients who had CT, MRI, PET scans, etc. performed. These reports are used for diagnosis and treatment of patients.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: subject
+    backref: radiology_report
+    label: member_of
+    target_type: subject
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - subject
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  # Raw Text Notes from ENT_CA_DM_XRay_Notes_fake.txt; Radiology Results & Reports: written by radiologists for patients who had CT, MRI, PET scan
+
+  ORDER_PROC_ID:
+    type: string
+    description: unique ID corresponding to order
+  PROC_ID:
+    type: string
+    description: procedure ID corresponding to order
+  PROC_CODE:
+    type: string
+    description: procedure code corresponding to order
+  PROC_DESCRIPTION:
+    type: string
+    description: procedure description corresponding to order
+  ORDER_DTTM:
+    type: string
+    description: day/time of order
+  TAKEN_DTTM:
+    type: string
+    description: day/time when exam taken
+  RESULT_DTTM:
+    type: string
+    description: day/time when result generated
+  ACCESSION_NUMBER:
+    type: string
+    description: accession number coresponding to the radiology exam
+  AUTHRZING_PROV_ID:
+    type: string
+    description: ID & name of provider authorizing order
+  AUTHORIZING_PROVIDER:
+    type: string
+    description: ID & name of provider authorizing order
+  NOTE_STATUS_CODE:
+    type: string
+    description: code and status of result report
+  NOTE_STATUS:
+    type: string
+    description: code and status of result report
+  NOTE_DATE:
+    type: string
+    description: date of note
+  Rad_note:
+    type: string
+    description: raw text of radiology report
+
+  subject:
+    description: The submitter_id or id of the subject this radiology report belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_many"

@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "pathology_report"
-title: Pathology Report
+id: "cytology_report"
+title: Cytology Report
 type: object
 nodeTerms: null
 namespace: https://imaging-hub.data-commons.org
 category: clinical
 program: '*'
 project: '*'
-description: Pathology reports and results from pathologists reviewed specimens collected during surgery, used for diagnosis.
+description: Cytology reports & results from cytologists reviewing specimens collected during fine needle aspirations; used for diagnosis.
 additionalProperties: false
 submittable: true
 validators: null
@@ -22,7 +22,7 @@ systemProperties:
 
 links:
   - name: subject
-    backref: pathology_report
+    backref: cytology_report
     label: member_of
     target_type: subject
     multiplicity: many_to_one
@@ -41,16 +41,17 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-  # Raw Text Notes from ENT_CA_DM_Pathology_fake.txt; pathology reports and results: Pathology reports & results from pathologists reviewed specimens collected during surgery, used for diagnosis
+  # Raw Text Notes	ENT_CA_DM_Cytology_fake.txt; Cytology reports & results: from cytologists reviewing specimens collected during fine needle aspirations, used for diagnosis; same variables as pathology_report
+
   enc_date:
     type: string
-    description: date of the encounter
+    description: encounter date
   adm_date:
     type: string
-    description: 
+    description: admission date
   disc_date:
     type: string
-    description: 
+    description: discharge date
   order_dttm:
     type: string
     description: day/time order was put in
@@ -80,13 +81,13 @@ properties:
     description: raw text note of pathology report
   result_in_range_yn:
     type: string
-    description: result in range, yes or no
+    description: flag to denote if the result is in range
   result_flag:
     type: string
-    description: result flag
+    description: flag to denote if the result is abnormal
   reference_unit:
     type: string
-    description: reference unit
+    description: reference unit of the result
   HPV:
     type: string
     description: flag to denote if HPV or P16 are mentioned in raw text. Used to identify patients who HPV/p16 result or status
@@ -95,8 +96,8 @@ properties:
     description: flag to denote if HPV or P16 are mentioned in raw text. Used to identify patients who HPV/p16 result or status
   accession_num:
     type: string
-    description: accession used to identify the pathology report/pathologist review, corresponds to the specimens created from a specific surgical procedure. Pathology uses this identifier to track blocks in the pathology archive 
+    description: accession number used to identify the cytology report/cytologist review
 
   subject:
-    description: The submitter_id or id of the subject this pathology report belongs to, i.e., a link to a record in the parent node.
+    description: The submitter_id or id of the subject this cytology report belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_many"

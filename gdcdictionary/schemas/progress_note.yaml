@@ -83,5 +83,5 @@ properties:
     description: raw text of progress note
 
   subject:
-    description: The submitter_id or id of the subject this visit belongs to, i.e., a link to a record in the parent node.
+    description: The submitter_id or id of the subject this progress note belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_many"
