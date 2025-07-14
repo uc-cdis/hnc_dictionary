@@ -4,7 +4,7 @@ id: "vitals_flowsheet"
 title: Vitals Flowsheet
 type: object
 nodeTerms: null
-namespace: https://imaging-hub.data-commons.org
+namespace: https://headneckcancerbank.data-commons.org
 category: clinical
 program: '*'
 project: '*'

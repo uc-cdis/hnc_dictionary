@@ -4,7 +4,7 @@ id: "subject"
 title: Subject
 type: object
 nodeTerms: null
-namespace: https://imaging-hub.data-commons.org
+namespace: https://headneckcancerbank.data-commons.org
 category: administrative
 program: '*'
 project: '*'

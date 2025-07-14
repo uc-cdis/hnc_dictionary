@@ -4,7 +4,7 @@ id: "progress_note"
 title: Progress Note
 type: object
 nodeTerms: null
-namespace: https://imaging-hub.data-commons.org
+namespace: https://headneckcancerbank.data-commons.org
 category: clinical
 program: '*'
 project: '*'
