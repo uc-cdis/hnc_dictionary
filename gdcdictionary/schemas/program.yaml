@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "program"
 title: Program
 type: object
-namespace: https://gdc.cancer.gov
+namespace: https://headneckcancerbank.data-commons.org
 category: administrative
 project: '*'
 program: '*'

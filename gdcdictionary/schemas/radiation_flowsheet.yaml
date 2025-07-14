@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "radiation_flowsheet"
 title: Radiation Flowsheet
 type: object
-namespace: https://imaging-hub.data-commons.org 
+namespace: https://headneckcancerbank.data-commons.org
 category: clinical
 program: '*'
 project: '*'
