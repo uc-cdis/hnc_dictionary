@@ -70,7 +70,7 @@ properties:
     type: string
     description: Designates which tubes samples were collected in
   sample_volume:
-    type: integer
+    type: number
     description: volume of sample in milliliters
   dna_concentration:
     type: number
