@@ -21,7 +21,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: project
+  - name: projects
     backref: core_metadata_collection
     label: data_from
     target_type: project
@@ -31,7 +31,7 @@ links:
 required:
   - submitter_id
   - type
-  - project
+  - projects
 
 uniqueKeys:
   - [id]
@@ -130,6 +130,6 @@ properties:
       which the resource is formally known.
     type: string
 
-  project:
+  projects:
     description: The project code for the record in the project node that this core_metadata_collection belongs to, i.e., a link to the parent node.
     $ref: "_definitions.yaml#/to_one_project"
