@@ -22,7 +22,7 @@ systemProperties:
 
 links:
   - name: subject
-    backref: visit
+    backref: progress_note
     label: member_of
     target_type: subject
     multiplicity: many_to_one
