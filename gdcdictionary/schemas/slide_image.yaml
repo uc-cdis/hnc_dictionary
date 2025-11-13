@@ -38,13 +38,13 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: image_file
+        backref: slide_image
         label: data_from
         target_type: core_metadata_collection
         multiplicity: many_to_one
         required: false
       - name: slide
-        backref: slide_images
+        backref: slide_image
         label: data_from
         target_type: slide
         multiplicity: many_to_many
