@@ -1,6 +1,18 @@
 id: _terms
 
 
+bone_marrow_malignant_cells:
+  description: >
+    The text term used to indicate whether there are malignant cells in the bone
+    marrow.
+  termDef:
+    term: >
+      Malignant Bone Marrow Indicator
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
 creation_datetime:
   description: >
     The datetime of portion creation encoded as seconds from epoch.
@@ -61,11 +73,11 @@ gender:
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2200604&version=3.0"
 
 is_ffpe:
-  description: >-
+  description: >
     Indicator to signify whether or not the tissue sample was fixed in formalin
     and embedded in paraffin (FFPE).
   termDef:
-    term: >-
+    term: >
       Specimen Processing Formalin Fixed Paraffin Embedded Tissue Indicator
     source: caDSR
     cde_id: 4170557
@@ -77,9 +89,193 @@ md5sum:
     The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital
     fingerprint.
 
+number_proliferating_cells:
+  description: >
+    Numeric value that represents the count of proliferating cells determined during
+    pathologic review of the sample slide(s).
+  termDef:
+    term: >
+      Pathology Review Slide Proliferating Cell Count
+    source: caDSR
+    cde_id: 5432636
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432636%20and%20ver_nr=1.0"
+
 object_id:
     type: string
     description: "The GUID of the object in the index service."
+
+percent_eosinophil_infiltration:
+  description: >
+    Numeric value to represent the percentage of infiltration by eosinophils in
+    a tumor sample or specimen.
+  termDef:
+    term: >
+      Specimen Eosinophilia Percentage Value
+    source: caDSR
+    cde_id: 2897700
+    cde_version: 2.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2897700%20and%20ver_nr=2.0"
+
+percent_follicular_component:
+  description: >
+    Numeric value that represents the percentage of follicular features found in
+    a specific tissue sample.
+  termDef:
+    term: >
+      Specimen Follicular Features Percentage Value
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
+percent_granulocyte_infiltration:
+  description: >
+    Numeric value to represent the percentage of infiltration by granulocytes in
+    a tumor sample or specimen.
+  termDef:
+    term: >
+      Specimen Granulocyte Infiltration Percentage Value
+    source: caDSR
+    cde_id: 2897705
+    cde_version: 2.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2897705%20and%20ver_nr=2.0"
+
+percent_inflam_infiltration:
+  description: >
+    Numeric value to represent local response to cellular injury, marked by capillary
+    dilatation, edema and leukocyte infiltration; clinically, inflammation is manifest
+    by reddness, heat, pain, swelling and loss of function, with the need to heal
+    damaged tissue.
+  termDef:
+    term: >
+      Specimen Inflammation Change Percentage Value
+    source: caDSR
+    cde_id: 2897695
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2897695%20and%20ver_nr=1.0"
+
+percent_lymphocyte_infiltration:
+  description: >
+    Numeric value to represent the percentage of infiltration by lymphocytes in
+    a solid tissue sample or specimen.
+  termDef:
+    term: >
+      Specimen Lymphocyte Infiltration Percentage Value
+    source: caDSR
+    cde_id: 2897710
+    cde_version: 2.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2897710%20and%20ver_nr=2.0"
+
+percent_monocyte_infiltration:
+  description: >
+    Numeric value to represent the percentage of monocyte infiltration in a sample
+    or specimen.
+  termDef:
+    term: >
+      Specimen Monocyte Infiltration Percentage Value
+    source: caDSR
+    cde_id: 5455535
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5455535%20and%20ver_nr=1.0"
+
+percent_necrosis:
+  description: >
+    Numeric value to represent the percentage of cell death in a malignant tumor
+    sample or specimen.
+  termDef:
+    term: >
+      Malignant Neoplasm Necrosis Percentage Value
+    source: caDSR
+    cde_id: 2841237
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2841237%20and%20ver_nr=1.0"
+
+percent_neutrophil_infiltration:
+  description: >
+    Numeric value to represent the percentage of infiltration by neutrophils in
+    a tumor sample or specimen.
+  termDef:
+    term: >
+      Malignant Neoplasm Neutrophil Infiltration Percentage Cell Value
+    source: caDSR
+    cde_id: 2841267
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2841267%20and%20ver_nr=1.0"
+
+percent_normal_cells:
+  description: >
+    Numeric value to represent the percentage of normal cell content in a malignant
+    tumor sample or specimen.
+  termDef:
+    term: >
+      Malignant Neoplasm Normal Cell Percentage Value
+    source: caDSR
+    cde_id: 2841233
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2841233%20and%20ver_nr=1.0"
+
+percent_rhabdoid_features:
+  description: >
+    Numeric value that represents the percentage of rhabdoid features found in a
+    specific tissue sample.
+  termDef:
+    term: >
+      Specimen Rhabdoid Features Percentage Value
+    source: caDSR
+    cde_id: 6790120
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=6790120%20and%20ver_nr=1.0"
+
+percent_sarcomatoid_features:
+  description: >
+    Numeric value that represents the percentage of sarcomatoid features found in
+    a specific tissue sample.
+  termDef:
+    term: >
+      Specimen Sarcomatoid Features Percentage Value
+    source: caDSR
+    cde_id: 2429786
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2429786%20and%20ver_nr=1.0"
+
+percent_stromal_cells:
+  description: >
+    Numeric value to represent the percentage of reactive cells that are present
+    in a malignant tumor sample or specimen but are not malignant such as fibroblasts,
+    vascular structures, etc.
+  termDef:
+    term: >
+      Malignant Neoplasm Stromal Cell Percentage Value
+    source: caDSR
+    cde_id: 2841241
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2841241%20and%20ver_nr=1.0"
+
+percent_tumor_cells:
+  description: >
+    Numeric value that represents the percentage of infiltration by tumor cells
+    in a sample.
+  termDef:
+    term: >
+      Specimen Tumor Cell Percentage Value
+    source: caDSR
+    cde_id: 5432686
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432686%20and%20ver_nr=1.0"
+
+percent_tumor_nuclei:
+  description: >
+    Numeric value to represent the percentage of tumor nuclei in a malignant neoplasm
+    sample or specimen.
+  termDef:
+    term: >
+      Malignant Neoplasm Neoplasm Nucleus Percentage Cell Value
+    source: caDSR
+    cde_id: 2841225
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2841225%20and%20ver_nr=1.0"
+
 
 portion_number:
   description: >
@@ -118,6 +314,46 @@ project_id:
     Unique ID for any specific defined piece of work that is undertaken or attempted to
     meet a single requirement.
 
+prostatic_chips_positive_count:
+  description: >
+    The text term used to describe the number of positive prostatic chips, which
+    are generated from transurethral resection of the prostate (TURP) procedures
+    and are generally used for relieving urinary obstruction due to nodular hyperplasia
+    of the prostate (benign prostatic hyperplasia).
+  termDef:
+    term: >
+      Prostate Chips Positive Count
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
+prostatic_chips_total_count:
+  description: >
+    The text term used to describe the total number of prostatic chips, which are
+    generated from transurethral resection of the prostate (TURP) procedures and
+    are generally used for relieving urinary obstruction due to nodular hyperplasia
+    of the prostate (benign prostatic hyperplasia).
+  termDef:
+    term: >
+      Prostate Chips Total Count
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
+prostatic_involvement_percent:
+  description: >
+    Numeric value that represents the percentage of prostatic involvement found
+    in a specific tissue sample.
+  termDef:
+    term: >
+      Specimen Prostatic Involvement Percentage Value
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
 race:
   description: >
     An arbitrary classification of a taxonomic group that is a division of a species. It usually
@@ -132,9 +368,31 @@ race:
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2192199&version=1.0"
 
+section_location:
+  description: >
+    Tissue source of the slide.
+  termDef:
+    term:
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
 state:
   description: >
     The current state of the object.
+
+tissue_microarray_coordinates:
+  description: >
+    The alphanumeric term used to describe the coordinates of a specific tissue
+    located on a tissue microarray slide.
+  termDef:
+    term: >
+      Tissue Microarray Coordinates Value
+    source:
+    cde_id:
+    cde_version:
+    term_url:
 
 tumor_grade:
   description: >
