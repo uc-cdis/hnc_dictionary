@@ -93,8 +93,7 @@ properties:
       - Tissue Slide
 
   imaging_date:
-    $ref:
-      - "_definitions.yaml#/datetime"
+    $ref: "_definitions.yaml#/datetime"
 
   magnification:
     description: >
