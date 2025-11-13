@@ -88,10 +88,10 @@ properties:
       $ref: "_terms.yaml#/data_format"
     type: string
 
-  experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    type: string
+  # experimental_strategy:
+  #   term:
+  #     $ref: "_terms.yaml#/experimental_strategy"
+  #   type: string
 
   # image_quality:
   #   description: >
