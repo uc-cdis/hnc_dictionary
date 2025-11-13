@@ -50,6 +50,9 @@ properties:
   $ref:
     - "_definitions.yaml#/ubiquitous_properties"
 
+  type:
+    enum: [ "slide" ]
+
   bone_marrow_malignant_cells:
     $ref:
       - "_terms.yaml#/bone_marrow_malignant_cells"
