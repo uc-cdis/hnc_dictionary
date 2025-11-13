@@ -378,6 +378,17 @@ section_location:
     cde_version:
     term_url:
 
+stain_type:
+  description: >
+    The text term used to describe the type of stain used on a slide.
+  termDef:
+    term: >
+      Tissue Slide Stain Type
+    source:
+    cde_id:
+    cde_version:
+    term_url:
+
 state:
   description: >
     The current state of the object.
