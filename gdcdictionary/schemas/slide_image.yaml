@@ -101,8 +101,8 @@ properties:
     type: number
 
   stain_type:
-    $ref:
-      - "_terms.yaml#/stain_type"
+    term:
+      $ref: "_terms.yaml#/stain_type"
     enum:
       - Haemotoxylin and Eosin (H&E)
       - Immunohistochemistry (IHC)
