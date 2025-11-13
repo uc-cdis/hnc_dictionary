@@ -21,13 +21,13 @@ systemProperties:
 
 links:
   - name: subject
-    backref: imaging_studies
+    backref: imaging_study
     label: related_to
     target_type: subject
     multiplicity: many_to_one
     required: true
   - name: dataset
-    backref: imaging_studies
+    backref: imaging_study
     label: member_of
     target_type: dataset
     multiplicity: many_to_many
