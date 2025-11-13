@@ -117,8 +117,7 @@ properties:
 
   percent_normal_cells:
     term:
-      $ref:
-      - "_terms.yaml#/percent_normal_cells"
+      $ref: "_terms.yaml#/percent_normal_cells"
     type: number
     maximum: 100
     minimum: 0
