@@ -1,5 +1,17 @@
 id: _terms
 
+
+creation_datetime:
+  description: >
+    The datetime of portion creation encoded as seconds from epoch.
+  termDef:
+    term: Biospecimen Portion Creation Seconds Date/Time
+    source: caDSR
+    cde_id: 5432592
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432592%20and%20ver_nr=1.0"
+
+
 data_category:
   description: >
     Broad categorization of the contents of the data file.
@@ -48,6 +60,18 @@ gender:
     cde_version: 3.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2200604&version=3.0"
 
+is_ffpe:
+  description: >-
+    Indicator to signify whether or not the tissue sample was fixed in formalin
+    and embedded in paraffin (FFPE).
+  termDef:
+    term: >-
+      Specimen Processing Formalin Fixed Paraffin Embedded Tissue Indicator
+    source: caDSR
+    cde_id: 4170557
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4170557%20and%20ver_nr=1.0"
+
 md5sum:
   description: >
     The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital
@@ -56,6 +80,28 @@ md5sum:
 object_id:
     type: string
     description: "The GUID of the object in the index service."
+
+portion_number:
+  description: >
+    Numeric value that represents the sequential number assigned to a portion of
+    the sample.
+  termDef:
+    term: >
+      Biospecimen Portion Sequence Number
+    source: caDSR
+    cde_id: 5432711
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432711%20and%20ver_nr=1.0"
+
+portion_weight:
+  description: >
+    Numeric value that represents the sample portion weight, measured in milligrams.
+  termDef:
+    term: Biospecimen Portion Weight Milligram Value
+    source: caDSR
+    cde_id: 5432593
+    cde_version: 1.0
+    term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432593%20and%20ver_nr=1.0"
 
 primary_diagnosis:
   description: >
