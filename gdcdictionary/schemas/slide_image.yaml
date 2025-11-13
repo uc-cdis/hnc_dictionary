@@ -3,16 +3,14 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "slide_image"
 title: Slide Image
 type: object
-namespace: https://gdc.cancer.gov
+namespace: https://headneckcancerbank.data-commons.org
 category: data_file
-project: '*'
 program: '*'
-description: >-
+project: '*'
+description: >
   Data file containing image of a slide.
 additionalProperties: false
 submittable: true
-downloadable: true
-previous_version_downloadable: false
 validators: null
 
 systemProperties:
@@ -24,15 +22,8 @@ systemProperties:
   - state
   - error_type
 
-links:
-  - name: slides
-    backref: slide_images
-    label: data_from
-    target_type: slide
-    multiplicity: many_to_many
-    required: true
-
 required:
+  - type
   - submitter_id
   - file_name
   - file_size
@@ -40,26 +31,46 @@ required:
   - data_category
   - data_format
   - data_type
-  - experimental_strategy
+  # - experimental_strategy
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: image_file
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: slide
+        backref: slide_images
+        label: data_from
+        target_type: slide
+        multiplicity: many_to_many
+        required: true
+
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 properties:
-
   $ref:
     - "_definitions.yaml#/data_file_properties"
 
+  type:
+    enum: [ "slide_iamge" ]
+
   data_category:
     $ref:
-      - "_terms.yaml#/data_category/common"
+      - "_terms.yaml#/data_category"
     enum:
       - Biospecimen
 
   data_type:
     $ref:
-      - "_terms.yaml#/data_type/common"
+      - "_terms.yaml#/data_type"
     enum:
       - Cell Culture Image
       - Slide Image
@@ -67,15 +78,15 @@ properties:
 
   data_format:
     $ref:
-      - "_terms.yaml#/data_format/common"
+      - "_terms.yaml#/data_format"
     enum:
       - JPEG
-      - JPEG 2000
+      # - JPEG 2000
       - SVS
       - TIFF
 
   experimental_strategy:
-    description: >-
+    description: >
       Classification of the image type with respect to its experimental use.
     enum:
       - Cell Culture
@@ -87,16 +98,20 @@ properties:
       - "_definitions.yaml#/datetime"
 
   magnification:
-    description: >-
+    description: >
       Magnification used to capture the image.
     type: number
 
   stain_type:
     $ref:
-      - "_terms.yaml#/stain_type/common"
+      - "_terms.yaml#/stain_type"
     enum:
       - Haemotoxylin and Eosin (H&E)
       - Immunohistochemistry (IHC)
 
-  slides:
+  ### links 
+  slide:
     $ref: "_definitions.yaml#/to_many"
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
