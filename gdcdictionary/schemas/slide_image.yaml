@@ -1,0 +1,115 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "slide_image"
+title: Slide Image
+type: object
+namespace: https://headneckcancerbank.data-commons.org
+category: data_file
+program: '*'
+project: '*'
+description: >
+  Data file containing image of a slide.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - state
+  - error_type
+
+required:
+  - type
+  - submitter_id
+  - file_name
+  - file_size
+  - md5sum
+  - data_category
+  - data_format
+  - data_type
+  # - experimental_strategy
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: slide_image
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: slide
+        backref: slide_image
+        label: data_from
+        target_type: slide
+        multiplicity: many_to_many
+        required: true
+
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  type:
+    enum: [ "slide_iamge" ]
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - Biospecimen
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Cell Culture Image
+      - Slide Image
+      - Tissue Microarray Image
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - JPEG
+      # - JPEG 2000
+      - SVS
+      - TIFF
+
+  experimental_strategy:
+    description: >
+      Classification of the image type with respect to its experimental use.
+    enum:
+      - Cell Culture
+      - Diagnostic Slide
+      - Tissue Slide
+
+  imaging_date:
+    $ref: "_definitions.yaml#/datetime"
+
+  magnification:
+    description: >
+      Magnification used to capture the image.
+    type: number
+
+  stain_type:
+    term:
+      $ref: "_terms.yaml#/stain_type"
+    enum:
+      - Haemotoxylin and Eosin (H&E)
+      - Immunohistochemistry (IHC)
+
+  ### links 
+  slide:
+    $ref: "_definitions.yaml#/to_many"
+
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_one"
