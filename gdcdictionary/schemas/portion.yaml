@@ -42,29 +42,28 @@ links:
 
 
 properties:
-
   $ref:
     - "_definitions.yaml#/ubiquitous_properties"
 
   creation_datetime:
     $ref:
-      - "_terms.yaml#/creation_datetime/common"
+      - "_terms.yaml#/creation_datetime"
     type: number
     minimum: 0
 
   is_ffpe:
     $ref:
-      - "_terms.yaml#/is_ffpe/common"
+      - "_terms.yaml#/is_ffpe"
     type: boolean
 
   portion_number:
     $ref:
-      - "_terms.yaml#/portion_number/common"
+      - "_terms.yaml#/portion_number"
     type: string
 
   weight:
     $ref:
-      - "_terms.yaml#/portion_weight/common"
+      - "_terms.yaml#/portion_weight"
     type: number
     minimum: 0
 
