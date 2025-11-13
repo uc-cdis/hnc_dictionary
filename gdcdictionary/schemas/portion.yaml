@@ -28,7 +28,6 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-
 links:
   - exclusive: false
     required: true
@@ -39,7 +38,6 @@ links:
       target_type: sample
       multiplicity: many_to_one
       required: true
-
 
 properties:
   $ref:
