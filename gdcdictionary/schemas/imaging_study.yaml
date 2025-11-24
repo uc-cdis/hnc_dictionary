@@ -87,10 +87,10 @@ properties:
     description: An indicator of whether any post-clinical modification of image pixel data has been performed on the study.
     type: boolean
 
-  loinc_code:
-    term:
-      $ref: "_terms.yaml#/loinc_code"
-    type: string
+  # loinc_code:
+  #   term:
+  #     $ref: "_terms.yaml#/loinc_code"
+  #   type: string
 
   # loinc_contrast:
   #   term:
