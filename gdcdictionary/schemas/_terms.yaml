@@ -22,6 +22,16 @@ bone_marrow_malignant_cells:
     cde_version:
     term_url:
 
+code_meaning:
+  description: >
+    (0008,0104) Code Meaning. Note that code_meaning is pulled from the View Code Sequence (0054,0220). The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Code Meaning"
+    source: DICOM
+    cde_id: (0008,0104)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
 contrast_bolus_agent:
   description: >
     (0018, 0010) Contrast/Bolus Agent. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
@@ -532,6 +542,26 @@ slice_thickness:
     term: "Slice Thickness"
     source: DICOM
     cde_id: (0018, 0050)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+sop_class_name:
+  description: >
+    The textual description for the (0008, 0016) SOP Class UID Attribute. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "SOP Class"
+    source: DICOM
+    cde_id: (0008, 0016)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+sop_class_uid:
+  description: >
+    (0008, 0016) SOP Class UID Attribute.. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "SOP Class UID"
+    source: DICOM
+    cde_id: (0008, 0016)
     cde_version: null
     term_url: "https://www.dicomstandard.org/current"
 
