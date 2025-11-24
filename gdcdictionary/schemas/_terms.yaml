@@ -625,6 +625,16 @@ radiopharmaceutical:
     cde_version: null
     term_url: "https://www.dicomstandard.org/current"
 
+region_spatial_format:
+  description: >
+    (0018,6012) Region Spatial Format. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Region Spatial Format"
+    source: DICOM
+    cde_id: (0018,6012)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
 repetition_time:
   description: >
     (0018, 0080) Repetition Time. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
@@ -791,6 +801,16 @@ tissue_microarray_coordinates:
     cde_id:
     cde_version:
     term_url:
+
+transducer_type:
+  description: >
+    (0018,6031) Transducer type. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Transducer type"
+    source: DICOM
+    cde_id: (0018,6031)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 tumor_grade:
   description: >
