@@ -4,7 +4,7 @@ id: "imaging_study"
 title: Imaging Study
 type: object
 namespace: https://headneckcancerbank.data-commons.org
-category: medical_imaging
+category: medical_history
 program: '*'
 project: '*'
 description: Information related to an imaging study or exam done for diagnostic or research purposes, including patient clinical or contextual data recorded at the time of the imaging study.
@@ -36,8 +36,8 @@ links:
 required:
   - submitter_id
   - type
-  - subject
-  - dataset
+  - cases
+  - datasets
 
 uniqueKeys:
   - [id]
@@ -47,48 +47,101 @@ properties:
 
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
-## DICOM properties
-  BodyPartExamined:
-    description: (0018, 0015) Body Part Examined.
+  age_at_imaging:
+    term:
+      $ref: "_terms.yaml#/age_at_imaging"
+    type: number
+    maximum: 89
+    minimum: 0
+
+  age_at_imaging_gt89:
+    description: Indicates whether the age of the patient in years at the time the imaging study was performed is greater than 89 years. This property is included to ensure personal privacy protection in accordance with the HIPAA Safe Harbor Method. More information can be found here https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html.
+    enum:
+      - "Yes"
+      - "No"
+
+  body_part_examined:
+    term:
+      $ref: "_terms.yaml#/body_part_examined"
     type: array
     items:
       type: string
 
-  EthnicGroup: # use subject.ethnicity
-    description: (0010,2160) The ethnic group to which the patient belongs.
+  # days_from_study_to_neg_covid_test:
+  #   description: The number of days from the imaging study to the patient's negative COVID-19 test(s).  This property takes a list of values, each of which represents a COVID-19 test for the patient. A positive value for this property means that a negative COVID-19 test result was obtained for the patient that many days after the imaging study was performed. A negative value indicates that a negative COVID-19 test result was obtained prior to the date of imaging. This property is included to ensure personal privacy protection in accordance with the HIPAA Safe Harbor Method. More information can be found here https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html.
+  #   type: array
+  #   items:
+  #     type: integer
+
+  # days_from_study_to_pos_covid_test:
+  #   description: The number of days from the imaging study to the patient's positive COVID-19 test(s).  This property takes a list of values, each of which represents a COVID-19 test for the patient. A positive value for this property means that a positive COVID-19 test result was obtained for the patient that many days after the imaging study was performed. A negative value indicates that the positive COVID-19 test result was obtained prior to the date of imaging. This property is included to ensure personal privacy protection in accordance with the HIPAA Safe Harbor Method. More information can be found here https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html.
+  #   type: array
+  #   items:
+  #     type: integer
+
+  days_to_study:
+    description: The number of days between the subject's index date and the date of the imaging study. This property is included to ensure personal privacy protection in accordance with the HIPAA Safe Harbor Method. More information can be found here https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html.
+    type: number
+
+  image_data_modified:
+    description: An indicator of whether any post-clinical modification of image pixel data has been performed on the study.
+    type: boolean
+
+  loinc_code:
+    term:
+      $ref: "_terms.yaml#/loinc_code"
+    type: string
+
+  # loinc_contrast:
+  #   term:
+  #     $ref: "_terms.yaml#/loinc_contrast"
+  #   type: string
+
+  # loinc_long_common_name:
+  #   term:
+  #     $ref: "_terms.yaml#/loinc_long_common_name"
+  #   type: string
+
+  # loinc_method:
+  #   term:
+  #     $ref: "_terms.yaml#/loinc_method"
+  #   type: string
+
+  # loinc_system:
+  #   term:
+  #     $ref: "_terms.yaml#/loinc_system"
+  #   type: string
+
+  study_description:
+    term:
+      $ref: "_terms.yaml#/study_description"
     type: string
 
   study_modality:
-    description: The list of modalities in the imaging study; derived from (0008, 0060) Modality.
+    term:
+      $ref: "_terms.yaml#/study_modality"
     type: array
     items:
       type: string
 
-  PatientAge:
-    description: (0010,1010) The patient's age at the time of the imaging study.
-    type: number
-  # PatientBirthYear:
-  #   description: (0010,0030) Patient's Birth Date Attribute
-  PatientID: # use subject.submitter_id
-    description: (0010,0020) A unique identifier for the patient.
-    type: string
-  PatientSex: # use subject.gender as source of truth, but this can store DICOM value
-    description: (0010,0040) the patient's sex; the biologic character or quality that distinguishes male and female from one another as expressed by analysis of the person's gonadal, morphologic  (internal and external), chromosomal, and hormonal characteristics
-    enum:
-      - "Female"
-      - "Male"
-  StudyDescription:
-    description: (0008, 1030) Study Description.
-    type: string
-  StudyInstanceUID:
-    description: (0020, 000d) Study Instance UID
+  study_uid:
+    term:
+      $ref: "_terms.yaml#/study_uid"
     type: string
 
+  study_year:
+    term:
+      $ref: "_terms.yaml#/study_year"
+    type: integer
+
+  study_year_shifted:
+    description: Indicates whether the study year has been shifted for de-identification. This property is included to ensure personal privacy protection in accordance with the HIPAA Safe Harbor Method. More information can be found here https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html.
+    type: boolean
 
   subject:
-    description: The submitter_id or id of the subject/patient observed in this imaging_study, i.e., a link to a record in the parent node.
+    description: The submitter_id or id of the case observed in this imaging_study, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"
 
   dataset:
-    description: The submitter_id or id of the dataset this subject belongs to, i.e., a link to a record in the parent node.
+    description: The submitter_id or id of the dataset this case belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_many"

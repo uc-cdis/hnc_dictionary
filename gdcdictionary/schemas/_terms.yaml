@@ -10,6 +10,16 @@ acquisition_type:
     cde_version: null
     term_url: "https://www.dicomstandard.org/current"
 
+age_at_imaging:
+  description: >
+      The study participant's age, in years, at the time the imaging study was performed. Note that an age of 0 indicates a participant who is younger than 1 year old. For participants with ages greater than 89 years, please use the property 'age_at_index_gt89'.
+  termDef:
+    term: "Age at Imaging"
+    source: NCIt
+    cde_id: C201610
+    cde_version: null
+    term_url: ":https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&version=24.07e&ns=ncit&code=C201610"
+
 angio_flag:
   description: >
     (0018, 0025) Angio Flag. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
@@ -809,6 +819,46 @@ stain_type:
 state:
   description: >
     The current state of the object.
+
+study_description:
+  description: >
+    (0008, 1030) Study Description. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Study Description"
+    source: DICOM
+    cde_id: (0008, 1030)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+    
+study_modality:
+  description: >
+    The modalities of the imaging study; derived from (0008, 0060) Modality. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Study Modality"
+    source: DICOM
+    cde_id: (0008, 0060)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+study_uid:
+  description: >
+    (0020, 000d) Study Instance UID. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Study Instance UID"
+    source: DICOM
+    cde_id: (0020, 000d)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+study_year:
+  description: >
+    The year when imaging study was performed; year component of Study Date (0008, 0020).
+  termDef:
+    term: "Study Date Attribute"
+    source: DICOM
+    cde_id: (0008, 0020)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 tissue_microarray_coordinates:
   description: >
