@@ -615,6 +615,16 @@ race:
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2192199&version=1.0"
 
+radiation_setting:
+  description: >
+    (0018, 1155) Radiation Setting. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Radiation Setting"
+    source: DICOM
+    cde_id: (0018, 1155)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
 radiopharmaceutical:
   description: >
     (0018,0031) Radiopharmaceutical. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
