@@ -43,13 +43,24 @@ links:
         target_type: core_metadata_collection
         multiplicity: many_to_one
         required: false
-      - name: slide
+      - name: portion
         backref: slide_image
-        label: data_from
-        target_type: slide
+        label: derived_from
+        target_type: portion
+        multiplicity: many_to_one
+        required: false
+      - name: pathology_report
+        backref: slide_image
+        label: derived_from
+        target_type: pathology_report
         multiplicity: many_to_many
-        required: true
-
+        required: false
+      - name: sample
+        backref: slide_image
+        label: derived_from
+        target_type: sample
+        multiplicity: many_to_one
+        required: false
 
 uniqueKeys:
   - [id]
@@ -108,8 +119,17 @@ properties:
       - Immunohistochemistry (IHC)
 
   ### links 
-  slide:
+  pathology_report:
+    description: The submitter_id or id of the pathology_report this slide image belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_many"
+
+  portion:
+    description: The submitter_id or id of the portion this slide image belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
+
+  sample:
+    description: The submitter_id or id of the sample this slide image belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
 
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_one"
