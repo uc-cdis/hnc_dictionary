@@ -202,7 +202,7 @@ properties:
     $ref: "_definitions.yaml#/to_one"
 
   subject:
-    description: The submitter_id or id of the case this annotation relates to, i.e., a link to a record in the parent node.
+    description: The submitter_id or id of the subject this annotation relates to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"
 
   imaging_study:
