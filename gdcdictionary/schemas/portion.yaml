@@ -68,5 +68,5 @@ properties:
     minimum: 0
 
   sample:
-    description: The submitter_id or id of the sample this pathology report belongs to, i.e., a link to a record in the parent node.
+    description: The submitter_id or id of the sample this portion belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"

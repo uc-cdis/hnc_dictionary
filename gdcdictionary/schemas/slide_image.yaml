@@ -56,7 +56,7 @@ links:
         multiplicity: many_to_many
         required: false
       - name: sample
-        backref: portion
+        backref: slide_image
         label: derived_from
         target_type: sample
         multiplicity: many_to_one
