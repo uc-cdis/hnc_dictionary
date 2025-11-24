@@ -1,0 +1,191 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "dx_series_file"
+title: DX Series File
+type: object
+namespace: https://headneckcancerbank.data-commons.org
+category: data_file
+program: '*'
+project: '*'
+description: A package of image files and metadata related to a DX imaging series to which one or more digital radiograph (x-rays) instances belong.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: dx_series_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: imaging_studies
+        backref: dx_series_files
+        label: related_to
+        target_type: imaging_study
+        multiplicity: many_to_one
+        required: false
+
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_format
+  - data_type
+  - data_category
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  contrast_bolus_agent:
+    term:
+      $ref: "_terms.yaml#/contrast_bolus_agent"
+    type: array
+    items:
+      type: string
+
+  detector_type:
+    term:
+      $ref: "_terms.yaml#/detector_type"
+    enum:
+      - DIRECT
+      - SCINTILLATOR
+      - STORAGE
+      - FILM
+
+  image_data_modification_name:
+    description: A MIDRC classification describing specific methods (e.g., software tools, processes) used to modify the study series. More information can be found at midrc.org. 
+    type: integer
+
+  image_data_modification_method:
+    description: A categorical description of the type of image modification performed on the study series.
+    enum:
+      - Removal of alphanumeric characters
+      - Defacing
+      - Skull-stripping
+
+  image_data_modified:
+    description: An indicator of whether any post-clinical modification of image pixel data has been performed on the study series.
+    type: boolean
+
+  image_type:
+    term:
+      $ref: "_terms.yaml#/image_type"
+    type: array
+    items:
+      type: string
+
+  imager_pixel_spacing:
+    term:
+      $ref: "_terms.yaml#/imager_pixel_spacing"
+    type: array
+    items:
+      type: number
+
+  lossy_image_compression:
+    term:
+      $ref: "_terms.yaml#/lossy_image_compression"
+    enum:
+      - "00"
+      - "01"
+
+  manufacturer:
+    term:
+      $ref: "_terms.yaml#/manufacturer"
+    type: string
+
+  manufacturer_model_name:
+    term:
+      $ref: "_terms.yaml#/manufacturer_model_name"
+    type: string
+
+  modality:
+    term:
+      $ref: "_terms.yaml#/modality"
+    type: string
+
+  number_of_instances:
+    description: The number of instances included in this series.
+    type: integer
+
+  pixel_spacing:
+    term:
+      $ref: "_terms.yaml#/pixel_spacing"
+    type: array
+    items:
+      type: number
+
+  series_description:
+    term:
+      $ref: "_terms.yaml#/series_description"
+    type: string
+
+  series_uid:
+    term:
+      $ref: "_terms.yaml#/series_uid"
+    type: string
+
+  spatial_resolution:
+    term:
+      $ref: "_terms.yaml#/spatial_resolution"
+    type: number
+
+  view_position:
+    term:
+      $ref: "_terms.yaml#/view_position"
+    type: array
+    items:
+      type: string
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - "DX"
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - "DCM"
+      - "nii.gz"
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - "DICOM"
+      - "NIfTI"
+
+  # file_description:
+  #   description: Any additional text to give this file context in its study.
+  #   type: string
+
+  core_metadata_collections:
+    description: The submitter_id or id of the core_metadata_collection to which the dx_series_file belongs, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
+
+  imaging_studies:
+    description: The submitter_id or id of the imaging_study this dx_series_file belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
