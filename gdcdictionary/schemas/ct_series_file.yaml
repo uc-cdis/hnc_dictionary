@@ -197,6 +197,6 @@ properties:
     description: The submitter_id or id of the core_metadata_collection to which the ct_series_file belongs, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"
 
-  imaging_studies:
+  imaging_study:
     description: The submitter_id or id of the imaging_study this ct_series_file belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"

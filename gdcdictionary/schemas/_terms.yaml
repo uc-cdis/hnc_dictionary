@@ -1,5 +1,14 @@
 id: _terms
 
+acquisition_type:
+  description: >
+    (0018, 9302) Acquisition Type. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Acquisition Type"
+    source: DICOM
+    cde_id: (0018, 9302)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 bone_marrow_malignant_cells:
   description: >
@@ -20,6 +29,16 @@ contrast_bolus_agent:
     term: "Contrast Bolus Agent"
     source: DICOM
     cde_id: (0018, 0010)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+convolution_kernel:
+  description: >
+    (0018, 1210) Convolution Kernel. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Convolution Kernel"
+    source: DICOM
+    cde_id: (0018, 1210)
     cde_version: null
     term_url: "https://www.dicomstandard.org/current"
 
@@ -70,6 +89,16 @@ ethnicity:
     cde_id: 2192217
     cde_version: 2.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2192217&version=2.0"
+
+exposure_modulation_type:
+  description: >
+    (0018, 9323) Exposure Modulation Type. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Exposure Modulation Type"
+    source: DICOM
+    cde_id: (0018, 9323)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 file_name:
   description: >
@@ -183,6 +212,16 @@ number_proliferating_cells:
 object_id:
     type: string
     description: "The GUID of the object in the index service."
+
+patient_position:
+  description: >
+    (0018,5100) Patient Position. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Patient Position"
+    source: DICOM
+    cde_id: (0018,5100)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 percent_eosinophil_infiltration:
   description: >
@@ -483,6 +522,26 @@ series_uid:
     term: "Series Instance UID"
     source: DICOM
     cde_id: (0020, 000e)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+slice_thickness:
+  description: >
+    (0018, 0050) Slice Thickness. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Slice Thickness"
+    source: DICOM
+    cde_id: (0018, 0050)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+spacing_between_slices:
+  description: >
+    (0018, 0088) Spacing Between Slices. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Spacing Between Slices"
+    source: DICOM
+    cde_id: (0018, 0088)
     cde_version: null
     term_url: "https://www.dicomstandard.org/current"
 
