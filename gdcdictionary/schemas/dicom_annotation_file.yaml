@@ -46,11 +46,10 @@ required:
   - data_type
   - data_category
   - annotation_name
-  - case_ids
   - modality
   - series_description
   - series_uid
-  - imaging_studies
+  - imaging_study
 
 uniqueKeys:
   - [id]
