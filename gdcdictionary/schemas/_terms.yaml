@@ -13,6 +13,16 @@ bone_marrow_malignant_cells:
     cde_version:
     term_url:
 
+contrast_bolus_agent:
+  description: >
+    (0018, 0010) Contrast/Bolus Agent. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Contrast Bolus Agent"
+    source: DICOM
+    cde_id: (0018, 0010)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
 creation_datetime:
   description: >
     The datetime of portion creation encoded as seconds from epoch.
@@ -22,7 +32,6 @@ creation_datetime:
     cde_id: 5432592
     cde_version: 1.0
     term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=5432592%20and%20ver_nr=1.0"
-
 
 data_category:
   description: >
@@ -39,6 +48,16 @@ data_type:
 datetime:
   description: >
     A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+
+detector_type:
+  description: >
+    (0018, 7004) Detector Type. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Detector Type"
+    source: DICOM
+    cde_id: (0018, 7004)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 ethnicity:
   description: >
@@ -72,6 +91,26 @@ gender:
     cde_version: 3.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2200604&version=3.0"
 
+image_type:
+  description: >
+    (0008, 0008) Image Type. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Image Type"
+    source: DICOM
+    cde_id: (0008, 0008)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+imager_pixel_spacing:
+  description: >
+    (0018, 1164) Imager Pixel Spacing. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Imager Pixel Spacing"
+    source: DICOM
+    cde_id: (0018, 1164)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
 is_ffpe:
   description: >
     Indicator to signify whether or not the tissue sample was fixed in formalin
@@ -84,10 +123,50 @@ is_ffpe:
     cde_version: 1.0
     term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=4170557%20and%20ver_nr=1.0"
 
+lossy_image_compression:
+  description: >
+    (0028, 2110) Lossy Image Compression; Note, if an image is compressed with a lossy algorithm, the Attribute Lossy Image Compression (0028,2110) is set to "01". Subsequently, if the image is decompressed and transferred in uncompressed format, this Attribute value remains "01". The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Lossy Image Compression"
+    source: DICOM
+    cde_id: (0028, 2110)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+manufacturer:
+  description: >
+    (0008, 0070) Manufacturer. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Manufacturer"
+    source: DICOM
+    cde_id: (0008, 0070)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+manufacturer_model_name:
+  description: >
+    (0008, 1090) Manufacturer's Model Name. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Manufacturer's Model Name"
+    source: DICOM
+    cde_id: (0008, 1090)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
 md5sum:
   description: >
     The 128-bit hash value expressed as a 32 digit hexadecimal number used as a file's digital
     fingerprint.
+
+modality:
+  description: >
+    (0008, 0060) Modality. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Modality"
+    source: DICOM
+    cde_id: (0008, 0060)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 number_proliferating_cells:
   description: >
@@ -276,6 +355,15 @@ percent_tumor_nuclei:
     cde_version: 1.0
     term_url: "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2841225%20and%20ver_nr=1.0"
 
+pixel_spacing:
+  description: >
+    (0028, 0030) Pixel Spacing. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Pixel Spacing"
+    source: DICOM
+    cde_id: (0028, 0030)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 portion_number:
   description: >
@@ -378,6 +466,36 @@ section_location:
     cde_version:
     term_url:
 
+series_description:
+  description: >
+    (0008, 103e) Series Description. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Series Description"
+    source: DICOM
+    cde_id: (0008, 103e)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+series_uid:
+  description: >
+    (0020, 000e) Series Instance UID. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Series Instance UID"
+    source: DICOM
+    cde_id: (0020, 000e)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
+spatial_resolution:
+  description: >
+    (0018, 1050) Spatial Resolution. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Spatial Resolution"
+    source: DICOM
+    cde_id: (0018, 1050)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
 stain_type:
   description: >
     The text term used to describe the type of stain used on a slide.
@@ -448,6 +566,16 @@ tumor_stage:
     cde_id: C16899
     cde_version: null
     term_url: "https://ncit.nci.nih.gov/ncitbrowser/pages/concept_details.jsf?dictionary=NCI%20Thesaurus&code=C16899"
+
+view_position:
+  description: >
+    (0018, 5101) View Position. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "View Position"
+    source: DICOM
+    cde_id: (0018, 5101)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 UUID:
   description: >
