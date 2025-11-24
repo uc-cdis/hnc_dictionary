@@ -25,8 +25,14 @@ links:
     backref: pathology_report
     label: member_of
     target_type: subject
+    multiplicity: many_to_many
+    required: false
+  - name: sample
+    backref: pathology_report
+    label: derived_from
+    target_type: sample
     multiplicity: many_to_one
-    required: true
+    required: false
 
 required:
   - submitter_id
@@ -96,6 +102,10 @@ properties:
   accession_num:
     type: string
     description: accession used to identify the pathology report/pathologist review, corresponds to the specimens created from a specific surgical procedure. Pathology uses this identifier to track blocks in the pathology archive 
+
+  sample:
+    description: The submitter_id or id of the sample this pathology report belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
 
   subject:
     description: The submitter_id or id of the subject this pathology report belongs to, i.e., a link to a record in the parent node.
