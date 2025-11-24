@@ -21,18 +21,21 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: subject
-    backref: pathology_report
-    label: member_of
-    target_type: subject
-    multiplicity: many_to_many
-    required: false
-  - name: sample
-    backref: pathology_report
-    label: derived_from
-    target_type: sample
-    multiplicity: many_to_one
-    required: false
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: subject
+        backref: pathology_report
+        label: member_of
+        target_type: subject
+        multiplicity: many_to_many
+        required: false
+      - name: sample
+        backref: pathology_report
+        label: derived_from
+        target_type: sample
+        multiplicity: many_to_one
+        required: false
 
 required:
   - submitter_id
