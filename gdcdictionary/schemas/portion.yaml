@@ -33,7 +33,7 @@ links:
     required: true
     subgroup:
     - name: sample
-      backref: portions
+      backref: portion
       label: derived_from
       target_type: sample
       multiplicity: many_to_one
@@ -68,4 +68,5 @@ properties:
     minimum: 0
 
   sample:
+    description: The submitter_id or id of the sample this pathology report belongs to, i.e., a link to a record in the parent node.
     $ref: "_definitions.yaml#/to_one"
