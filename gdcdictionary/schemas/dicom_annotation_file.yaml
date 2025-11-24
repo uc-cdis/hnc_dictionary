@@ -1,0 +1,142 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "dicom_annotation_file"
+title: DICOM Annotation Series File
+type: object
+nodeTerms: null
+namespace: https://headneckcancerbank.data-commons.org
+category: data_file
+program: '*'
+project: '*'
+description: The dicom_annotation_file node provides the ability to link a DICOM series file containing annotation information to an imaging study.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - name: core_metadata_collections
+    backref: dicom_annotation_file
+    label: data_from
+    target_type: core_metadata_collection
+    multiplicity: many_to_one
+    required: false
+  - name: imaging_study
+    backref: dicom_annotation_file
+    label: related_to
+    target_type: imaging_study
+    multiplicity: many_to_one
+    required: true
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_format
+  - data_type
+  - data_category
+  - annotation_name
+  - modality
+  - series_description
+  - series_uid
+  - imaging_study
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+# ## NEW PROPERTIES for v1.1.7 (updated 2023-5-23)
+  annotation_method:
+    description: Defines the method by which the annotation was created. Clinically_derived - Based on information produced in the process of the subject's medical care; Retrospective_expert - Based on information produced retrospective to the subject's care by annotators with relevant special clinical expertise; Retrospective_general - Based on information produced retrospective to the subject's care by annotators without relevant special clinical expertise; Retrospective_auto - Based on information produced retrospective to the subject's care using automated means.
+    enum:
+        - Clinically_derived
+        - Retrospective_expert
+        - Retrospective_general
+        - Retrospective_auto
+
+  annotator_id:
+    description: Coded value to represent a particular annotator in a group. These need only be unique per annotation.
+    type: string
+
+  series_description:
+    description: (0008, 103e) Series Description; a general description of or additional information about the imaging series. If possible, the Series Description should match the annotation_name provided.
+    type: string
+
+# ## OTHER PROPERTIES
+  annotation_name:
+    term:
+      $ref: "_terms.yaml#/annotation_name"
+    enum:
+        - midrc_bpr_landmarks
+        - midrc_bpr_regions
+        - midrc_lung_segs
+        - midrc_lung_measures
+        - midrc_mdai_chestxr
+        - midrc_mRALE_Mastermind_Challenge
+        - SIFT
+
+  manufacturer:
+    description: (0008, 0070) Manufacturer
+    type: string
+
+  manufacturer_model_name:
+    description: (0008, 1090) Manufacturer's Model Name
+    type: string
+
+  modality:
+    description: (0008, 0060) Modality
+    enum:
+      - RTSTRUCT
+      - PR
+      - SR
+      - SEG
+      - DOC
+      - OT
+
+  series_uid:
+    description: (0020, 000e) Series Instance UID; the UID or unique identification code of the imaging series.
+    type: string
+
+  software_versions:
+    description: (0018,1020) Software Versions. This is the software version of the application where the annotation series was created.
+    type: string
+
+# ## FILE PROPERTIES
+  data_category:
+    description: The category of the annotation file. Must be "DICOM Annotation Series File".
+    enum:
+      - "DICOM Annotation Series File"
+
+  data_format:
+    description: The file format of the annotation file, e.g., JSON.
+    enum:
+      - DCM
+
+  data_type:
+    description: An indication of whether the annotation is expert validated by MIDRC (“Internal Annotation”) or has not be validated by MIDRC experts (“External Annotation”). 
+    enum:
+      - Internal Annotation
+      - External Annotation
+
+# ## LINKS
+  core_metadata_collections:
+    description: The submitter_id or id of the core_metadata_collection to which the rf_series_file belongs, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
+
+  imaging_study:
+    description: The submitter_id or id of the imaging_study this annotation relates to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"

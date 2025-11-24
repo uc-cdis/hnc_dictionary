@@ -1,0 +1,232 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "mg_series_file"
+title: MG Series File
+type: object
+namespace: https://headneckcancerbank.data-commons.org
+category: data_file
+program: '*'
+project: '*'
+description: Information related to a mammography (MG) imaging series to which one or more mammography images belong.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: mg_series_file
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: imaging_study
+        backref: mg_series_file
+        label: related_to
+        target_type: imaging_study
+        multiplicity: many_to_one
+        required: false
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_format
+  - data_type
+  - data_category
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  code_meaning:
+    term:
+      $ref: "_terms.yaml#/code_meaning"
+    type: array
+    items:
+      type: string
+
+  contrast_bolus_agent:
+    term:
+      $ref: "_terms.yaml#/contrast_bolus_agent"
+    type: array
+    items:
+      type: string
+
+  detector_type:
+    term:
+      $ref: "_terms.yaml#/detector_type"
+    enum:
+      - DIRECT
+      - SCINTILLATOR
+      - STORAGE
+      - FILM
+
+  image_data_modification_name:
+    description: A MIDRC classification describing specific methods (e.g., software tools, processes) used to modify the study series. More information can be found at midrc.org. 
+    type: integer
+
+  image_data_modification_method:
+    description: A categorical description of the type of image modification performed on the study series.
+    enum:
+      - Removal of alphanumeric characters
+      - Defacing
+      - Skull-stripping
+
+  image_data_modified:
+    description: An indicator of whether any post-clinical modification of image pixel data has been performed on the study series.
+    type: boolean
+
+  image_type:
+    term:
+      $ref: "_terms.yaml#/image_type"
+    type: array
+    items:
+      type: string
+
+  imager_pixel_spacing:
+    term:
+      $ref: "_terms.yaml#/imager_pixel_spacing"
+    type: array
+    items:
+      type: number
+
+  lossy_image_compression:
+    term:
+      $ref: "_terms.yaml#/lossy_image_compression"
+    enum:
+      - "00"
+      - "01"
+
+  manufacturer:
+    term:
+      $ref: "_terms.yaml#/manufacturer"
+    type: string
+
+  manufacturer_model_name:
+    term:
+      $ref: "_terms.yaml#/manufacturer_model_name"
+    type: string
+
+  modality:
+    term:
+      $ref: "_terms.yaml#/modality"
+    type: string
+
+  number_of_instances:
+    description: The number of instances included in this series.
+    type: integer
+
+  pixel_spacing:
+    term:
+      $ref: "_terms.yaml#/pixel_spacing"
+    type: array
+    items:
+      type: number
+
+  # screening_diagnostic:
+  #   description: Indicates whether the mammography was completed for screening or diagnostic purposes. IS THERE A DICOM ATTRIBUTE FOR THIS?
+  #   enum:
+  #     - Screening
+  #     - Diagnostic
+
+  series_description:
+    term:
+      $ref: "_terms.yaml#/series_description"
+    type: string
+
+  series_uid:
+    term:
+      $ref: "_terms.yaml#/series_uid"
+    type: string
+
+  sop_class_name:
+    term:
+      $ref: "_terms.yaml#/sop_class_name"
+    type: array
+    items:
+      enum:
+        - Digital Mammography X-Ray Image Storage - For Presentation
+        - Digital Mammography X-Ray Image Storage - For Processing
+        - Breast Tomosynthesis Image Storage
+        - Breast Projection X-Ray Image Storage - For Presentation
+        - Breast Projection X-Ray Image Storage - For Processing      
+
+  sop_class_uid:
+    term:
+      $ref: "_terms.yaml#/sop_class_uid"
+    type: array
+    items:
+      enum:
+        - 1.2.840.10008.5.1.4.1.1.1.2
+        - 1.2.840.10008.5.1.4.1.1.1.2.1
+        - 1.2.840.10008.5.1.4.1.1.13.1.3
+        - 1.2.840.10008.5.1.4.1.1.13.1.4
+        - 1.2.840.10008.5.1.4.1.1.13.1.5
+
+  spatial_resolution:
+    term:
+      $ref: "_terms.yaml#/spatial_resolution"
+    type: number
+
+  # spot_compression_spot_magnification:
+  #   description: Indicates whether the mammography image is a spot compression or spot magnification. IS THERE A DICOM ATTRIBUTE FOR THIS SHOULD WE USE View Modifier Code Seqeuence (0054,0222)?
+  #   enum:
+  #     - Spot compression
+  #     - Spot magnification
+
+  # tomosynthesis_images:
+  #   description: Indicates whether the series contains tomosynthesis images.
+  #   type: boolean
+
+  view_position:
+    term:
+      $ref: "_terms.yaml#/view_position"
+    type: array
+    items:
+      type: string
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - "MG"
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - "DCM"
+      - "nii.gz"
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - "DICOM"
+      - "NIfTI"
+
+  core_metadata_collections:
+    description: The submitter_id or id of the core_metadata_collection to which the mg_series_file belongs, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
+
+  imaging_study:
+    description: The submitter_id or id of the imaging study this mg_series belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"

@@ -1,0 +1,170 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "us_series_file"
+title: US Series File
+type: object
+namespace: https://headneckcancerbank.data-commons.org
+category: data_file
+program: '*'
+project: '*'
+description: Information related to a US imaging series to which one or more Ultrasound images belong.
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: us_series_file
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: imaging_study
+        backref: us_series_file
+        label: related_to
+        target_type: imaging_study
+        multiplicity: many_to_one
+        required: false
+
+required:
+  - submitter_id
+  - type
+  - file_name
+  - file_size
+  - md5sum
+  - data_format
+  - data_type
+  - data_category
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+properties:
+
+  $ref: "_definitions.yaml#/data_file_properties"
+
+  image_data_modification_name:
+    description: A MIDRC classification describing specific methods (e.g., software tools, processes) used to modify the study series. More information can be found at midrc.org.
+    type: integer
+
+  image_data_modification_method:
+    description: A categorical description of the type of image modification performed on the study series.
+    enum:
+      - Removal of alphanumeric characters
+      - Defacing
+      - Skull-stripping
+
+  image_data_modified:
+    description: An indicator of whether any post-clinical modification of image pixel data has been performed on the study series.
+    type: boolean
+
+  lossy_image_compression:
+    term:
+      $ref: "_terms.yaml#/lossy_image_compression"
+    enum:
+      - "00"
+      - "01"
+
+  manufacturer:
+    term:
+      $ref: "_terms.yaml#/manufacturer"
+    type: string
+
+  manufacturer_model_name:
+    term:
+      $ref: "_terms.yaml#/manufacturer_model_name"
+    type: string
+
+  modality:
+    term:
+      $ref: "_terms.yaml#/modality"
+    type: string
+
+  number_of_instances:
+    description: The number of instances included in this series.
+    type: integer
+
+  region_spatial_format:
+    term:
+      $ref: "_terms.yaml#/region_spatial_format"
+    type: array
+    items:
+      enum:
+        - "0000H: None or not applicable"
+        - "0001H: 2D (tissue or flow)"
+        - "0002H: M-Mode (tissue or flow)"
+        - "0003H: Spectral (CW or PW Doppler)"
+        - "0004H: Wave form (physiological traces, Doppler traces,...)"
+        - "0005H: Graphics"
+
+  series_description:
+    term:
+      $ref: "_terms.yaml#/series_description"
+    type: string
+
+  series_uid:
+    term:
+      $ref: "_terms.yaml#/series_uid"
+    type: string
+
+  transducer_type:
+    term:
+      $ref: "_terms.yaml#/transducer_type"
+    enum:
+      - SECTOR_PHASED
+      - SECTOR_MECH
+      - SECTOR_ANNULAR
+      - LINEAR
+      - CURVED LINEAR
+      - SINGLE CRYSTAL
+      - SPLIT XTAL CWD
+      - IV_PHASED
+      - IV_ROT XTAL
+      - IV_ROT MIRROR
+      - ENDOCAV_PA
+      - ENDOCAV_MECH
+      - ENDOCAV_CLA
+      - ENDOCAV_AA
+      - ENDOCAV_LINEAR
+      - VECTOR_PHASED
+
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum:
+      - "US"
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum:
+      - "DCM"
+      - "nii.gz"
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - "DICOM"
+      - "NIfTI"
+
+  core_metadata_collections:
+    description: The submitter_id or id of the core_metadata_collection to which the us_series_file belongs, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
+
+  imaging_study:
+    description: The submitter_id or id of the imaging_study this us_series_file belongs to, i.e., a link to a record in the parent node.
+    $ref: "_definitions.yaml#/to_one"
