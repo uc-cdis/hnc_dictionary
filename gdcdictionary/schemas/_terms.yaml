@@ -20,6 +20,16 @@ angio_flag:
     cde_version: null
     term_url: "https://www.dicomstandard.org/current"
 
+body_part_examined:
+  description: >
+    (0018, 0015) Body Part Examined. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Body Part Examined"
+    source: DICOM
+    cde_id: (0018, 0015)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
+
 bone_marrow_malignant_cells:
   description: >
     The text term used to indicate whether there are malignant cells in the bone
@@ -604,6 +614,16 @@ race:
     cde_id: 2192199
     cde_version: 1.0
     term_url: "https://cdebrowser.nci.nih.gov/CDEBrowser/search?elementDetails=9&FirstTimer=0&PageId=ElementDetailsGroup&publicId=2192199&version=1.0"
+
+radiopharmaceutical:
+  description: >
+    (0018,0031) Radiopharmaceutical. The Digital Imaging and Communications in Medicine (DICOM) standard is the international standard to transmit, store, retrieve, print, process, and display medical imaging information.
+  termDef:
+    term: "Radiopharmaceutical"
+    source: DICOM
+    cde_id: (0018,0031)
+    cde_version: null
+    term_url: "https://www.dicomstandard.org/current"
 
 repetition_time:
   description: >
