@@ -57,6 +57,9 @@ properties:
   procedure_date:
     type: string
     description: date/time of sample collection or reception at the HTRC
+  sample_year:
+    type: integer
+    description: year of sample collection or reception at the HTRC
   sample_number:
     type: string
     description: Sample ID unique to specific sample. Newer samples begin with S, older samples do not.
