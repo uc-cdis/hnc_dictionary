@@ -103,10 +103,10 @@ properties:
     type: string
     description: hospital location where first surgery received was performed
   First_Course_Scope_Reg_LN_Surg_Hosp_Desc:
-    type: integer
+    type: string
     description: how many lymph nodes were removed during first surgery
   Scope_Reg_LN_Surgery_Desc:
-    type: integer
+    type: stromg
     description: how many lymph nodes were removed during first surgery
   # Radiation variables from ENT_CA_DM_CancerRegistry_fake.txt
   Date_RT_Started:
