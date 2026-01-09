@@ -106,7 +106,7 @@ properties:
     type: string
     description: how many lymph nodes were removed during first surgery
   Scope_Reg_LN_Surgery_Desc:
-    type: stromg
+    type: string
     description: how many lymph nodes were removed during first surgery
   # Radiation variables from ENT_CA_DM_CancerRegistry_fake.txt
   Date_RT_Started:
