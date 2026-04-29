@@ -81,7 +81,7 @@ properties:
   Note_Narr:
     type: string
     description: raw text of progress note
-  priority_outcomes:
+  PRIORITY_OUTCOMES:
     type: array
     items:
       type: string
