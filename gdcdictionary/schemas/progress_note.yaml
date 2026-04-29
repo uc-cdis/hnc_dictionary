@@ -81,6 +81,11 @@ properties:
   Note_Narr:
     type: string
     description: raw text of progress note
+  PRIORITY_OUTCOMES:
+    type: array
+    items:
+      type: string
+    description: List of priority outcomes extracted from progress note text (Note_Narr)
 
   subject:
     description: The submitter_id or id of the subject this progress note belongs to, i.e., a link to a record in the parent node.
